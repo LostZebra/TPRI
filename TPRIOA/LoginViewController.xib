@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361p" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
+            <connections>
+                <outlet property="confirmLoginButton" destination="hAM-Vy-DbD" id="9qm-GI-bdN"/>
+                <outlet property="passwordTextField" destination="c1u-QR-UgE" id="lgi-7x-5om"/>
+                <outlet property="titleLogoImage" destination="rij-ea-Ntv" id="WI9-Fr-Qfw"/>
+                <outlet property="usrNameTextField" destination="tXN-8h-Jfo" id="ijM-nc-3rf"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="c1u-QR-UgE">
+                    <rect key="frame" x="240" y="220" width="120" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="用户名" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tXN-8h-Jfo">
+                    <rect key="frame" x="240" y="182" width="120" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="title_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="rij-ea-Ntv">
+                    <rect key="frame" x="200" y="30" width="200" height="66"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAM-Vy-DbD">
+                    <rect key="frame" x="285" y="309" width="30" height="30"/>
+                    <state key="normal" title="登录">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="c1u-QR-UgE" firstAttribute="top" secondItem="tXN-8h-Jfo" secondAttribute="bottom" constant="8" symbolic="YES" id="00s-SU-se3"/>
+                <constraint firstAttribute="trailing" secondItem="rij-ea-Ntv" secondAttribute="trailing" constant="200" id="1M4-LI-WkW"/>
+                <constraint firstItem="hAM-Vy-DbD" firstAttribute="top" secondItem="rij-ea-Ntv" secondAttribute="bottom" constant="121" id="21R-89-jtm"/>
+                <constraint firstItem="tXN-8h-Jfo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="182" id="3vD-eQ-4qW"/>
+                <constraint firstItem="rij-ea-Ntv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="200" id="4N1-St-izm"/>
+                <constraint firstItem="hAM-Vy-DbD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="285" id="4pR-SV-MBQ"/>
+                <constraint firstItem="rij-ea-Ntv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="200" id="82M-xx-Ulz"/>
+                <constraint firstItem="c1u-QR-UgE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="220" id="AZG-EU-b5T"/>
+                <constraint firstItem="tXN-8h-Jfo" firstAttribute="top" secondItem="rij-ea-Ntv" secondAttribute="bottom" constant="86" id="EC4-MK-lxR"/>
+                <constraint firstItem="hAM-Vy-DbD" firstAttribute="top" secondItem="tXN-8h-Jfo" secondAttribute="bottom" constant="57" id="H2Z-sg-fYg"/>
+                <constraint firstAttribute="bottom" secondItem="hAM-Vy-DbD" secondAttribute="bottom" constant="261" id="MRT-eN-C2s"/>
+                <constraint firstAttribute="trailing" secondItem="c1u-QR-UgE" secondAttribute="trailing" constant="240" id="MUY-Tn-z2A"/>
+                <constraint firstItem="tXN-8h-Jfo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="240" id="OMk-k6-VAd"/>
+                <constraint firstItem="hAM-Vy-DbD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="285" id="PWS-7f-8RW"/>
+                <constraint firstItem="hAM-Vy-DbD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="309" id="UGz-nH-biF"/>
+                <constraint firstAttribute="trailing" secondItem="hAM-Vy-DbD" secondAttribute="trailing" constant="285" id="VoI-qL-gEL"/>
+                <constraint firstAttribute="bottom" secondItem="tXN-8h-Jfo" secondAttribute="bottom" constant="388" id="WQ5-pc-SnZ"/>
+                <constraint firstItem="rij-ea-Ntv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="bPe-bW-Qhc"/>
+                <constraint firstItem="c1u-QR-UgE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="240" id="bQW-hf-7hA"/>
+                <constraint firstAttribute="trailing" secondItem="hAM-Vy-DbD" secondAttribute="trailing" constant="285" id="cQT-fD-Vk0"/>
+                <constraint firstAttribute="bottom" secondItem="c1u-QR-UgE" secondAttribute="bottom" constant="461" id="dLi-rB-VZA"/>
+                <constraint firstItem="tXN-8h-Jfo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="240" id="e1f-ax-Efg"/>
+                <constraint firstAttribute="bottom" secondItem="rij-ea-Ntv" secondAttribute="bottom" constant="504" id="evj-by-T0L"/>
+                <constraint firstAttribute="trailing" secondItem="rij-ea-Ntv" secondAttribute="trailing" constant="200" id="fU9-VW-ToM"/>
+                <constraint firstAttribute="trailing" secondItem="tXN-8h-Jfo" secondAttribute="trailing" constant="240" id="ffK-Qf-BDR"/>
+                <constraint firstItem="hAM-Vy-DbD" firstAttribute="top" secondItem="c1u-QR-UgE" secondAttribute="bottom" constant="59" id="fwZ-lX-zb2"/>
+                <constraint firstItem="rij-ea-Ntv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="gcB-TQ-mGQ"/>
+                <constraint firstAttribute="trailing" secondItem="c1u-QR-UgE" secondAttribute="trailing" constant="240" id="h5A-tm-yKn"/>
+                <constraint firstAttribute="trailing" secondItem="tXN-8h-Jfo" secondAttribute="trailing" constant="240" id="kBf-74-jid"/>
+                <constraint firstItem="c1u-QR-UgE" firstAttribute="top" secondItem="tXN-8h-Jfo" secondAttribute="bottom" constant="8" id="pEm-2d-Bc4"/>
+                <constraint firstItem="c1u-QR-UgE" firstAttribute="top" secondItem="rij-ea-Ntv" secondAttribute="bottom" constant="63" id="qkk-ee-SPB"/>
+                <constraint firstItem="c1u-QR-UgE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="240" id="sT7-Vr-HOW"/>
+                <constraint firstAttribute="bottom" secondItem="c1u-QR-UgE" secondAttribute="bottom" constant="350" id="sdl-l7-v4U"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="1M4-LI-WkW"/>
+                    <exclude reference="4N1-St-izm"/>
+                    <exclude reference="82M-xx-Ulz"/>
+                    <exclude reference="bPe-bW-Qhc"/>
+                    <exclude reference="evj-by-T0L"/>
+                    <exclude reference="fU9-VW-ToM"/>
+                    <exclude reference="gcB-TQ-mGQ"/>
+                    <exclude reference="3vD-eQ-4qW"/>
+                    <exclude reference="EC4-MK-lxR"/>
+                    <exclude reference="OMk-k6-VAd"/>
+                    <exclude reference="WQ5-pc-SnZ"/>
+                    <exclude reference="e1f-ax-Efg"/>
+                    <exclude reference="ffK-Qf-BDR"/>
+                    <exclude reference="kBf-74-jid"/>
+                    <exclude reference="00s-SU-se3"/>
+                    <exclude reference="AZG-EU-b5T"/>
+                    <exclude reference="MUY-Tn-z2A"/>
+                    <exclude reference="bQW-hf-7hA"/>
+                    <exclude reference="dLi-rB-VZA"/>
+                    <exclude reference="h5A-tm-yKn"/>
+                    <exclude reference="pEm-2d-Bc4"/>
+                    <exclude reference="qkk-ee-SPB"/>
+                    <exclude reference="sT7-Vr-HOW"/>
+                    <exclude reference="sdl-l7-v4U"/>
+                    <exclude reference="21R-89-jtm"/>
+                    <exclude reference="4pR-SV-MBQ"/>
+                    <exclude reference="H2Z-sg-fYg"/>
+                    <exclude reference="MRT-eN-C2s"/>
+                    <exclude reference="PWS-7f-8RW"/>
+                    <exclude reference="UGz-nH-biF"/>
+                    <exclude reference="VoI-qL-gEL"/>
+                    <exclude reference="cQT-fD-Vk0"/>
+                    <exclude reference="fwZ-lX-zb2"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="240" y="262"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="title_logo.png" width="401" height="66"/>
+    </resources>
+</document>

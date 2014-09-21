@@ -9,11 +9,18 @@
 /* Begin PBXBuildFile section */
 		FF94B21919CC1D75005B279C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FF94B21819CC1D75005B279C /* main.m */; };
 		FF94B21C19CC1D75005B279C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FF94B21B19CC1D75005B279C /* AppDelegate.m */; };
-		FF94B21F19CC1D75005B279C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF94B21E19CC1D75005B279C /* ViewController.m */; };
 		FF94B22219CC1D75005B279C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF94B22019CC1D75005B279C /* Main.storyboard */; };
 		FF94B22419CC1D75005B279C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF94B22319CC1D75005B279C /* Images.xcassets */; };
 		FF94B22719CC1D75005B279C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF94B22519CC1D75005B279C /* LaunchScreen.xib */; };
 		FF94B23319CC1D75005B279C /* TPRIOATests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF94B23219CC1D75005B279C /* TPRIOATests.m */; };
+		FF94B24719CC3BD0005B279C /* title_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FF94B24619CC3BD0005B279C /* title_logo.png */; };
+		FF94B24919CC3D17005B279C /* light_settings_gear.png in Resources */ = {isa = PBXBuildFile; fileRef = FF94B24819CC3D17005B279C /* light_settings_gear.png */; };
+		FF94B25019CC4324005B279C /* ColorCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = FF94B24F19CC4324005B279C /* ColorCollection.m */; };
+		FF94B25419CC7660005B279C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF94B25219CC7660005B279C /* LoginViewController.m */; };
+		FF94B25519CC7660005B279C /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF94B25319CC7660005B279C /* LoginViewController.xib */; };
+		FFCE16E519CD8E260009853D /* info_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCE16E319CD8E260009853D /* info_button@2x.png */; };
+		FFCE16E619CD8E260009853D /* loading_spinner.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCE16E419CD8E260009853D /* loading_spinner.png */; };
+		FFD5BDC419CCA751006B622D /* DialogCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD5BDC319CCA751006B622D /* DialogCollection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +39,23 @@
 		FF94B21819CC1D75005B279C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FF94B21A19CC1D75005B279C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FF94B21B19CC1D75005B279C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FF94B21D19CC1D75005B279C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FF94B21E19CC1D75005B279C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FF94B22119CC1D75005B279C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF94B22319CC1D75005B279C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FF94B22619CC1D75005B279C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		FF94B22C19CC1D75005B279C /* TPRIOATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TPRIOATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF94B23119CC1D75005B279C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF94B23219CC1D75005B279C /* TPRIOATests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRIOATests.m; sourceTree = "<group>"; };
+		FF94B24619CC3BD0005B279C /* title_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title_logo.png; sourceTree = "<group>"; };
+		FF94B24819CC3D17005B279C /* light_settings_gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light_settings_gear.png; sourceTree = "<group>"; };
+		FF94B24E19CC4324005B279C /* ColorCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorCollection.h; sourceTree = "<group>"; };
+		FF94B24F19CC4324005B279C /* ColorCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorCollection.m; sourceTree = "<group>"; };
+		FF94B25119CC7660005B279C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		FF94B25219CC7660005B279C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		FF94B25319CC7660005B279C /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		FFCE16E319CD8E260009853D /* info_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_button@2x.png"; sourceTree = "<group>"; };
+		FFCE16E419CD8E260009853D /* loading_spinner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_spinner.png; sourceTree = "<group>"; };
+		FFD5BDC219CCA751006B622D /* DialogCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogCollection.h; sourceTree = "<group>"; };
+		FFD5BDC319CCA751006B622D /* DialogCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogCollection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +99,17 @@
 			children = (
 				FF94B21A19CC1D75005B279C /* AppDelegate.h */,
 				FF94B21B19CC1D75005B279C /* AppDelegate.m */,
-				FF94B21D19CC1D75005B279C /* ViewController.h */,
-				FF94B21E19CC1D75005B279C /* ViewController.m */,
+				FF94B25119CC7660005B279C /* LoginViewController.h */,
+				FF94B25219CC7660005B279C /* LoginViewController.m */,
+				FF94B25319CC7660005B279C /* LoginViewController.xib */,
+				FFD5BDC219CCA751006B622D /* DialogCollection.h */,
+				FFD5BDC319CCA751006B622D /* DialogCollection.m */,
+				FF94B24E19CC4324005B279C /* ColorCollection.h */,
+				FF94B24F19CC4324005B279C /* ColorCollection.m */,
 				FF94B22019CC1D75005B279C /* Main.storyboard */,
 				FF94B22319CC1D75005B279C /* Images.xcassets */,
 				FF94B22519CC1D75005B279C /* LaunchScreen.xib */,
+				FF94B24519CC3BD0005B279C /* icon */,
 				FF94B21619CC1D75005B279C /* Supporting Files */,
 			);
 			path = TPRIOA;
@@ -117,6 +139,17 @@
 				FF94B23119CC1D75005B279C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FF94B24519CC3BD0005B279C /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				FFCE16E319CD8E260009853D /* info_button@2x.png */,
+				FFCE16E419CD8E260009853D /* loading_spinner.png */,
+				FF94B24819CC3D17005B279C /* light_settings_gear.png */,
+				FF94B24619CC3BD0005B279C /* title_logo.png */,
+			);
+			path = icon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,8 +232,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF94B24719CC3BD0005B279C /* title_logo.png in Resources */,
+				FF94B24919CC3D17005B279C /* light_settings_gear.png in Resources */,
 				FF94B22219CC1D75005B279C /* Main.storyboard in Resources */,
 				FF94B22719CC1D75005B279C /* LaunchScreen.xib in Resources */,
+				FF94B25519CC7660005B279C /* LoginViewController.xib in Resources */,
+				FFCE16E619CD8E260009853D /* loading_spinner.png in Resources */,
+				FFCE16E519CD8E260009853D /* info_button@2x.png in Resources */,
 				FF94B22419CC1D75005B279C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,9 +257,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF94B21F19CC1D75005B279C /* ViewController.m in Sources */,
+				FF94B25419CC7660005B279C /* LoginViewController.m in Sources */,
+				FFD5BDC419CCA751006B622D /* DialogCollection.m in Sources */,
 				FF94B21C19CC1D75005B279C /* AppDelegate.m in Sources */,
 				FF94B21919CC1D75005B279C /* main.m in Sources */,
+				FF94B25019CC4324005B279C /* ColorCollection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,8 +386,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TPRIOA/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -356,8 +398,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TPRIOA/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
@@ -414,6 +458,7 @@
 				FF94B23819CC1D75005B279C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FF94B23919CC1D75005B279C /* Build configuration list for PBXNativeTarget "TPRIOATests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +467,7 @@
 				FF94B23B19CC1D75005B279C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
