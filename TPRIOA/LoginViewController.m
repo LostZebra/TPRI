@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 
+// Constrains
 NSString *const titleLogoImageHCons = @"H:[_titleLogoImage(==200)]";
 NSString *const titleLogoImageVCons = @"V:|-60-[_titleLogoImage(==33)]";
 NSString *const usrNameTextFieldHCons = @"H:[_usrNameTextField(==350)]";
@@ -47,7 +48,9 @@ NSString *const loginButtonVCons = @"V:[_passwordTextField]-30-[_confirmLoginBut
 
 - (void)login
 {
-    if (self.usrNameTextField.text.length == 0 || self.passwordTextField.text.length == 0) {
+    NSString *usrName = self.usrNameTextField.text;
+    NSString *password = self.passwordTextField.text;
+    if (usrName.length == 0 || password.length == 0) {
         [DialogCollection showAlertViewWithTitle:@"警告" andMessage:@"用户名密码不能为空" withLastingTime:1.0f delegate:self];
     }
     else {
@@ -57,11 +60,32 @@ NSString *const loginButtonVCons = @"V:[_passwordTextField]-30-[_confirmLoginBut
         [[[UIApplication sharedApplication] keyWindow] addSubview:maskView];
         // 显示指示正在登录的Progress view
         [DialogCollection showProgressView:@"正在登录" over:self.view];
-        // 这里处理登录验证逻辑
-        // ...
-        // 登录完成后使上述两个Subview消失
-        // [[[self.view subviews] lastObject] removeFromSuperview];
-        // [maskView removeFromSuperview];
+        // 登录
+        LoginClient *loginClient = [[LoginClient alloc] init];
+        [loginClient loginUsing:usrName password:password completionHandler:^(bool isSuccess) {
+            [[[self.view subviews] lastObject] removeFromSuperview];
+            [maskView removeFromSuperview];
+            if (isSuccess) {
+                // 登录完成后使上述两个Subview消失
+                [DialogCollection showAlertViewWithTitle:@"登录状态" andMessage:@"登录成功" withLastingTime:0.5f delegate:self];
+                // 跳转到下一个View]
+                UICollectionViewFlowLayout *collectionViewFlowLayout = [[UICollectionViewFlowLayout alloc] init];
+                collectionViewFlowLayout.itemSize = CGSizeMake(80, 110);
+                collectionViewFlowLayout.minimumLineSpacing = 50;
+                collectionViewFlowLayout.minimumInteritemSpacing = 30;
+                collectionViewFlowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+                collectionViewFlowLayout.sectionInset = UIEdgeInsetsMake(80.0f, 30.0f, 10.0f, 30.0f);
+                MainController *mainController = [[MainController alloc] initWithCollectionViewLayout:collectionViewFlowLayout];
+                UINavigationController *naviOnMainController = [[UINavigationController alloc] initWithRootViewController:mainController];
+                [self presentViewController:naviOnMainController animated:YES completion:^{
+                    NSLog(@"Main Controller presented!");
+                }];
+            }
+            else
+            {
+                [DialogCollection showAlertViewWithTitle:@"登录状态" andMessage:@"用户名或密码错误" withLastingTime:1.5f delegate:self];
+            }
+        }];
     }
 }
 
@@ -79,8 +103,9 @@ NSString *const loginButtonVCons = @"V:[_passwordTextField]-30-[_confirmLoginBut
     NSMutableAttributedString *titleStr = [[NSMutableAttributedString alloc] initWithString:@"登录系统"];
     UIFont *fontBold = [UIFont fontWithName:@"HelveticaNeue-Bold" size:17];
     [titleStr addAttribute:NSFontAttributeName value:fontBold range:NSMakeRange(0, 4)];
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 28)];
+    UILabel *titleLabel = [[UILabel alloc] init];
     [titleLabel setAttributedText:titleStr];
+    [titleLabel sizeToFit];
     [titleLabel setTextColor:[UIColor whiteColor]];
     self.navigationItem.titleView = titleLabel;
 }
@@ -116,7 +141,7 @@ NSString *const loginButtonVCons = @"V:[_passwordTextField]-30-[_confirmLoginBut
     [constraintsArray addObject:[NSLayoutConstraint constraintWithItem:self.confirmLoginButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0.0f]];
     [constraintsArray addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:loginButtonVCons options:0 metrics:nil views:viewDictionary]];
     [self.view addConstraints:constraintsArray];
-    // 用户名,密码框显示细节的设置已在xib文件中设定, 这里设定登录按钮的背景颜色和字体颜色
+    // 用户名,密码框显示细节的设置已在xib文件中设定,这里设定登录按钮的背景颜色和字体颜色
     [self.confirmLoginButton setTintColor:[UIColor whiteColor]];
     [self.confirmLoginButton setBackgroundColor:[ColorCollection titleBarColor]];
     [self.confirmLoginButton.layer setCornerRadius:10];

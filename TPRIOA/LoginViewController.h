@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
+// Self defined
+#import "LoginClient.h"
+#import "MainController.h"
+
+// Static class
 #import "ColorCollection.h"
 #import "DialogCollection.h"
 
