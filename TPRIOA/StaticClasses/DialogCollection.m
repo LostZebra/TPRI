@@ -10,6 +10,12 @@
 
 @implementation DialogCollection
 
+- (id)init
+{
+    NSAssert(false, @"This class is a static one which forbids explicit initiation");
+    return nil;
+}
+
 + (void)showAlertViewWithTitle:(NSString *)title andMessage:(NSString *)message withLastingTime:(NSTimeInterval)time delegate:(id)del
 {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:del cancelButtonTitle:nil otherButtonTitles:nil, nil];

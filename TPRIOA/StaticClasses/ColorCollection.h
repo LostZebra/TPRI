@@ -17,4 +17,6 @@
 
 + (UIColor *)positiveUIColor;
 
++ (UIColor *)lightGrayColor;
+
 @end

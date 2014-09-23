@@ -34,16 +34,9 @@ NSString *const loginButtonVCons = @"V:[_passwordTextField]-30-[_confirmLoginBut
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initInterface];
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)initInterface
-{
     [self buildNavigationBar];
-    // 通过代码添加布局约束
     [self buildingConstraintsOnUIElements];
-    
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)login
@@ -77,6 +70,7 @@ NSString *const loginButtonVCons = @"V:[_passwordTextField]-30-[_confirmLoginBut
                 collectionViewFlowLayout.sectionInset = UIEdgeInsetsMake(80.0f, 30.0f, 10.0f, 30.0f);
                 MainController *mainController = [[MainController alloc] initWithCollectionViewLayout:collectionViewFlowLayout];
                 UINavigationController *naviOnMainController = [[UINavigationController alloc] initWithRootViewController:mainController];
+                naviOnMainController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
                 [self presentViewController:naviOnMainController animated:YES completion:^{
                     NSLog(@"Main Controller presented!");
                 }];

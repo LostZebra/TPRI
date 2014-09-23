@@ -10,6 +10,12 @@
 
 @implementation ColorCollection
 
+- (id)init
+{
+    NSAssert(false, @"This class is a static one which forbids explicit initiation");
+    return nil;
+}
+
 + (UIColor *)titleBarColor
 {
     return [UIColor colorWithRed:0.0f green:0.5f blue:0.9f alpha:1.0f];
@@ -23,6 +29,11 @@
 + (UIColor *)positiveUIColor
 {
     return [UIColor colorWithRed:0.0f green:1.0f blue:0.0f alpha:1.0f];
+}
+
++ (UIColor *)lightGrayColor
+{
+    return [UIColor colorWithWhite:0.95 alpha:0.9];
 }
 
 @end

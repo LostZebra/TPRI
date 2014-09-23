@@ -9,13 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-// Self defined
-#import "LoginClient.h"
+// View controller
 #import "MainController.h"
 
 // Static class
 #import "ColorCollection.h"
 #import "DialogCollection.h"
+
+// Module
+#import "LoginClient.h"
 
 @interface LoginViewController : UIViewController<UIAlertViewDelegate>
 

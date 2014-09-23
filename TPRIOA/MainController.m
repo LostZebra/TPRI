@@ -51,6 +51,7 @@ static NSString *const cellIndentifier = @"CollectionCell";
     // 储存每个item的icon
     self.labelOrderDictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"代办事宜", @(0), @"已办事宜", @(1), @"签报管理", @(2), @"会议管理", @(3), @"通知公告", @(4), @"收文管理", @(5), @"技术报告", @(6), @"采购合同", @(7), @"收入合同", @(8), @"双周工作汇报", @(9), @"阅览室", @(10), nil];
     self.iconOrderDictionary = [NSDictionary dictionaryWithObjectsAndKeys:[UIImage imageNamed:@"done@2x"], @(0), [UIImage imageNamed:@"undone@2x"], @(1), [UIImage imageNamed:@"signature_management@2x"], @(2), [UIImage imageNamed:@"meeting_management@2x"], @(3), [UIImage imageNamed:@"bulletin@2x"], @(4), [UIImage imageNamed:@"document_management@2x"], @(5), [UIImage imageNamed:@"tech_report@2x"], @(6), [UIImage imageNamed:@"purchase_contract@2x"], @(7), [UIImage imageNamed:@"income_contract@2x"], @(8), [UIImage imageNamed:@"work_report@2x"], @(9), [UIImage imageNamed:@"reading@2x"], @(10), nil];
+    self.title = @"返回主菜单";
 }
 
 - (void)buildNavigationBar
@@ -84,6 +85,7 @@ static NSString *const cellIndentifier = @"CollectionCell";
 {
     self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellIndentifier];
+    self.collectionView.delegate = self;
     // 用户名的Label
     NSMutableAttributedString *usrIdStr = [[NSMutableAttributedString alloc] initWithString:@"肖勇"];
     UIFont *fontBold = [UIFont fontWithName:@"HelveticaNeue-Bold" size:17];
@@ -206,6 +208,28 @@ static NSString *const cellIndentifier = @"CollectionCell";
 }
 
 #pragma mark <UICollectionViewDelegate>
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cellSelected = [collectionView cellForItemAtIndexPath:indexPath];
+    [UIView animateWithDuration:0.1f animations:^{
+        CGPoint p = cellSelected.center;
+        p.x += 5;
+        p.y += 5;
+        cellSelected.center = p;
+    } completion:^(BOOL finished) {
+        if (finished) {
+            if (indexPath.item == 7) {
+                ContractViewController *contractViewController = [[ContractViewController alloc] init];
+                [self.navigationController pushViewController:contractViewController animated:YES];
+            }
+            CGPoint p = cellSelected.center;
+            p.x -= 5;
+            p.y -= 5;
+            cellSelected.center = p;
+        }
+    }];
+}
 
 /*
 // Uncomment this method to specify if the specified item should be highlighted during tracking

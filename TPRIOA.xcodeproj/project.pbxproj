@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FF65F7D219CFB257007D8DD3 /* LoginClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FF65F7D119CFB257007D8DD3 /* LoginClient.m */; };
 		FF65F7D619CFC1FF007D8DD3 /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF65F7D519CFC1FF007D8DD3 /* MainController.m */; };
 		FF65F7D819CFFDB6007D8DD3 /* info_button_dark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF65F7D719CFFDB6007D8DD3 /* info_button_dark@2x.png */; };
 		FF65F7DC19D00512007D8DD3 /* logined_status@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF65F7DB19D00512007D8DD3 /* logined_status@2x.png */; };
@@ -30,11 +29,15 @@
 		FF94B22419CC1D75005B279C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF94B22319CC1D75005B279C /* Images.xcassets */; };
 		FF94B22719CC1D75005B279C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF94B22519CC1D75005B279C /* LaunchScreen.xib */; };
 		FF94B23319CC1D75005B279C /* TPRIOATests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF94B23219CC1D75005B279C /* TPRIOATests.m */; };
-		FF94B25019CC4324005B279C /* ColorCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = FF94B24F19CC4324005B279C /* ColorCollection.m */; };
 		FF94B25419CC7660005B279C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF94B25219CC7660005B279C /* LoginViewController.m */; };
 		FF94B25519CC7660005B279C /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF94B25319CC7660005B279C /* LoginViewController.xib */; };
+		FFCD2C2419D10FD800941AEA /* ContractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCD2C2319D10FD800941AEA /* ContractViewController.m */; };
+		FFCD2C2E19D171AE00941AEA /* ColorCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCD2C2B19D171AE00941AEA /* ColorCollection.m */; };
+		FFCD2C2F19D171AE00941AEA /* DialogCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCD2C2D19D171AE00941AEA /* DialogCollection.m */; };
+		FFCD2C3419D171B700941AEA /* DataFetchingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCD2C3119D171B700941AEA /* DataFetchingClient.m */; };
+		FFCD2C3519D171B700941AEA /* LoginClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCD2C3319D171B700941AEA /* LoginClient.m */; };
+		FFCD2C3919D172CC00941AEA /* GeneralTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCD2C3819D172CC00941AEA /* GeneralTableViewCell.m */; };
 		FFCE16E519CD8E260009853D /* info_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCE16E319CD8E260009853D /* info_button@2x.png */; };
-		FFD5BDC419CCA751006B622D /* DialogCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD5BDC319CCA751006B622D /* DialogCollection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +51,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FF65F7D019CFB257007D8DD3 /* LoginClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginClient.h; path = ../LoginClient.h; sourceTree = "<group>"; };
-		FF65F7D119CFB257007D8DD3 /* LoginClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginClient.m; path = ../LoginClient.m; sourceTree = "<group>"; };
 		FF65F7D419CFC1FF007D8DD3 /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		FF65F7D519CFC1FF007D8DD3 /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
 		FF65F7D719CFFDB6007D8DD3 /* info_button_dark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_button_dark@2x.png"; sourceTree = "<group>"; };
@@ -78,14 +79,22 @@
 		FF94B22C19CC1D75005B279C /* TPRIOATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TPRIOATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF94B23119CC1D75005B279C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF94B23219CC1D75005B279C /* TPRIOATests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRIOATests.m; sourceTree = "<group>"; };
-		FF94B24E19CC4324005B279C /* ColorCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorCollection.h; sourceTree = "<group>"; };
-		FF94B24F19CC4324005B279C /* ColorCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorCollection.m; sourceTree = "<group>"; };
 		FF94B25119CC7660005B279C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		FF94B25219CC7660005B279C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		FF94B25319CC7660005B279C /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		FFCD2C2219D10FD800941AEA /* ContractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContractViewController.h; sourceTree = "<group>"; };
+		FFCD2C2319D10FD800941AEA /* ContractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContractViewController.m; sourceTree = "<group>"; };
+		FFCD2C2A19D171AE00941AEA /* ColorCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorCollection.h; path = TPRIOA/StaticClasses/ColorCollection.h; sourceTree = SOURCE_ROOT; };
+		FFCD2C2B19D171AE00941AEA /* ColorCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorCollection.m; path = TPRIOA/StaticClasses/ColorCollection.m; sourceTree = SOURCE_ROOT; };
+		FFCD2C2C19D171AE00941AEA /* DialogCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialogCollection.h; path = TPRIOA/StaticClasses/DialogCollection.h; sourceTree = SOURCE_ROOT; };
+		FFCD2C2D19D171AE00941AEA /* DialogCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DialogCollection.m; path = TPRIOA/StaticClasses/DialogCollection.m; sourceTree = SOURCE_ROOT; };
+		FFCD2C3019D171B700941AEA /* DataFetchingClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataFetchingClient.h; path = TPRIOA/Utilities/DataFetchingClient.h; sourceTree = SOURCE_ROOT; };
+		FFCD2C3119D171B700941AEA /* DataFetchingClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataFetchingClient.m; path = TPRIOA/Utilities/DataFetchingClient.m; sourceTree = SOURCE_ROOT; };
+		FFCD2C3219D171B700941AEA /* LoginClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginClient.h; path = TPRIOA/Utilities/LoginClient.h; sourceTree = SOURCE_ROOT; };
+		FFCD2C3319D171B700941AEA /* LoginClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginClient.m; path = TPRIOA/Utilities/LoginClient.m; sourceTree = SOURCE_ROOT; };
+		FFCD2C3719D172CC00941AEA /* GeneralTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralTableViewCell.h; sourceTree = "<group>"; };
+		FFCD2C3819D172CC00941AEA /* GeneralTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralTableViewCell.m; sourceTree = "<group>"; };
 		FFCE16E319CD8E260009853D /* info_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_button@2x.png"; sourceTree = "<group>"; };
-		FFD5BDC219CCA751006B622D /* DialogCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogCollection.h; sourceTree = "<group>"; };
-		FFD5BDC319CCA751006B622D /* DialogCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogCollection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,12 +115,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FF65F7D319CFB279007D8DD3 /* Module */ = {
+		FF65F7D319CFB279007D8DD3 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				FF65F7D019CFB257007D8DD3 /* LoginClient.h */,
-				FF65F7D119CFB257007D8DD3 /* LoginClient.m */,
+				FFCD2C3019D171B700941AEA /* DataFetchingClient.h */,
+				FFCD2C3119D171B700941AEA /* DataFetchingClient.m */,
+				FFCD2C3219D171B700941AEA /* LoginClient.h */,
+				FFCD2C3319D171B700941AEA /* LoginClient.m */,
 			);
+			name = Utilities;
 			path = Module;
 			sourceTree = "<group>";
 		};
@@ -143,14 +155,15 @@
 				FF94B25319CC7660005B279C /* LoginViewController.xib */,
 				FF65F7D419CFC1FF007D8DD3 /* MainController.h */,
 				FF65F7D519CFC1FF007D8DD3 /* MainController.m */,
-				FFD5BDC219CCA751006B622D /* DialogCollection.h */,
-				FFD5BDC319CCA751006B622D /* DialogCollection.m */,
-				FF94B24E19CC4324005B279C /* ColorCollection.h */,
-				FF94B24F19CC4324005B279C /* ColorCollection.m */,
+				FFCD2C2219D10FD800941AEA /* ContractViewController.h */,
+				FFCD2C2319D10FD800941AEA /* ContractViewController.m */,
 				FF94B22019CC1D75005B279C /* Main.storyboard */,
 				FF94B22319CC1D75005B279C /* Images.xcassets */,
 				FF94B22519CC1D75005B279C /* LaunchScreen.xib */,
-				FF65F7D319CFB279007D8DD3 /* Module */,
+				FFCD2C2519D1100E00941AEA /* StaticClasses */,
+				FF65F7D319CFB279007D8DD3 /* Utilities */,
+				FFCD2C2919D16F1900941AEA /* ModuleObjects */,
+				FFCD2C3619D1729800941AEA /* Views */,
 				FF94B24519CC3BD0005B279C /* icon */,
 				FF94B21619CC1D75005B279C /* Supporting Files */,
 			);
@@ -204,6 +217,34 @@
 				FFCE16E319CD8E260009853D /* info_button@2x.png */,
 			);
 			path = icon;
+			sourceTree = "<group>";
+		};
+		FFCD2C2519D1100E00941AEA /* StaticClasses */ = {
+			isa = PBXGroup;
+			children = (
+				FFCD2C2A19D171AE00941AEA /* ColorCollection.h */,
+				FFCD2C2B19D171AE00941AEA /* ColorCollection.m */,
+				FFCD2C2C19D171AE00941AEA /* DialogCollection.h */,
+				FFCD2C2D19D171AE00941AEA /* DialogCollection.m */,
+			);
+			name = StaticClasses;
+			path = UtilityClass;
+			sourceTree = "<group>";
+		};
+		FFCD2C2919D16F1900941AEA /* ModuleObjects */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModuleObjects;
+			sourceTree = "<group>";
+		};
+		FFCD2C3619D1729800941AEA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FFCD2C3719D172CC00941AEA /* GeneralTableViewCell.h */,
+				FFCD2C3819D172CC00941AEA /* GeneralTableViewCell.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,13 +364,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF65F7D219CFB257007D8DD3 /* LoginClient.m in Sources */,
+				FFCD2C3419D171B700941AEA /* DataFetchingClient.m in Sources */,
+				FFCD2C2419D10FD800941AEA /* ContractViewController.m in Sources */,
+				FFCD2C3919D172CC00941AEA /* GeneralTableViewCell.m in Sources */,
 				FF94B25419CC7660005B279C /* LoginViewController.m in Sources */,
-				FFD5BDC419CCA751006B622D /* DialogCollection.m in Sources */,
 				FF94B21C19CC1D75005B279C /* AppDelegate.m in Sources */,
+				FFCD2C2E19D171AE00941AEA /* ColorCollection.m in Sources */,
 				FF94B21919CC1D75005B279C /* main.m in Sources */,
+				FFCD2C3519D171B700941AEA /* LoginClient.m in Sources */,
 				FF65F7D619CFC1FF007D8DD3 /* MainController.m in Sources */,
-				FF94B25019CC4324005B279C /* ColorCollection.m in Sources */,
+				FFCD2C2F19D171AE00941AEA /* DialogCollection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
