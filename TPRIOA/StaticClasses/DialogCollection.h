@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
+// StaticClasses
+#import "FontCollection.h"
+
 @interface DialogCollection : NSObject
 
 + (void)showAlertViewWithTitle:(NSString *)title andMessage:(NSString *)message withLastingTime:(NSTimeInterval)time delegate:(id)del;

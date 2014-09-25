@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-// Static class
-#import "DialogCollection.h"
+// StaticClasses
 #import "ColorCollection.h"
+#import "FontCollection.h"
+#import "DialogCollection.h"
 
-// View controller
+// ViewControllers
 #import "ContractViewController.h"
 
 @interface MainController : UICollectionViewController<UIAlertViewDelegate>

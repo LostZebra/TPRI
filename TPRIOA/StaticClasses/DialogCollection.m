@@ -47,10 +47,10 @@
     // 定义Label
     UILabel *inProgressLabel = [[UILabel alloc] init];
     inProgressLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [inProgressLabel setText:status];
-    [inProgressLabel setFont:[UIFont systemFontOfSize:13]];
+    [inProgressLabel setFont:[FontCollection standardFontStyleWithSize:13.0f]];
     [inProgressLabel setTextAlignment:NSTextAlignmentCenter];
     [inProgressLabel setTextColor:[UIColor whiteColor]];
+    [inProgressLabel setText:status];
     // 添加子UIView
     [inProgressView addSubview:inProgressIndicator];
     [inProgressView addSubview:inProgressLabel];

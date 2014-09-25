@@ -31,6 +31,8 @@
 		FF94B23319CC1D75005B279C /* TPRIOATests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF94B23219CC1D75005B279C /* TPRIOATests.m */; };
 		FF94B25419CC7660005B279C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF94B25219CC7660005B279C /* LoginViewController.m */; };
 		FF94B25519CC7660005B279C /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF94B25319CC7660005B279C /* LoginViewController.xib */; };
+		FFCB1CB419D3E5EA00D6AF86 /* FontCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCB1CB319D3E5EA00D6AF86 /* FontCollection.m */; };
+		FFCB1CB719D40E4300D6AF86 /* GeneralStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCB1CB619D40E4300D6AF86 /* GeneralStorage.m */; };
 		FFCD2C2419D10FD800941AEA /* ContractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCD2C2319D10FD800941AEA /* ContractViewController.m */; };
 		FFCD2C2E19D171AE00941AEA /* ColorCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCD2C2B19D171AE00941AEA /* ColorCollection.m */; };
 		FFCD2C2F19D171AE00941AEA /* DialogCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCD2C2D19D171AE00941AEA /* DialogCollection.m */; };
@@ -82,6 +84,10 @@
 		FF94B25119CC7660005B279C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		FF94B25219CC7660005B279C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		FF94B25319CC7660005B279C /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		FFCB1CB219D3E5EA00D6AF86 /* FontCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FontCollection.h; path = TPRIOA/StaticClasses/FontCollection.h; sourceTree = SOURCE_ROOT; };
+		FFCB1CB319D3E5EA00D6AF86 /* FontCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FontCollection.m; path = TPRIOA/StaticClasses/FontCollection.m; sourceTree = SOURCE_ROOT; };
+		FFCB1CB519D40E4300D6AF86 /* GeneralStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GeneralStorage.h; path = TPRIOA/Utilities/GeneralStorage.h; sourceTree = SOURCE_ROOT; };
+		FFCB1CB619D40E4300D6AF86 /* GeneralStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GeneralStorage.m; path = TPRIOA/Utilities/GeneralStorage.m; sourceTree = SOURCE_ROOT; };
 		FFCD2C2219D10FD800941AEA /* ContractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContractViewController.h; sourceTree = "<group>"; };
 		FFCD2C2319D10FD800941AEA /* ContractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContractViewController.m; sourceTree = "<group>"; };
 		FFCD2C2A19D171AE00941AEA /* ColorCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorCollection.h; path = TPRIOA/StaticClasses/ColorCollection.h; sourceTree = SOURCE_ROOT; };
@@ -122,6 +128,8 @@
 				FFCD2C3119D171B700941AEA /* DataFetchingClient.m */,
 				FFCD2C3219D171B700941AEA /* LoginClient.h */,
 				FFCD2C3319D171B700941AEA /* LoginClient.m */,
+				FFCB1CB519D40E4300D6AF86 /* GeneralStorage.h */,
+				FFCB1CB619D40E4300D6AF86 /* GeneralStorage.m */,
 			);
 			name = Utilities;
 			path = Module;
@@ -224,6 +232,8 @@
 			children = (
 				FFCD2C2A19D171AE00941AEA /* ColorCollection.h */,
 				FFCD2C2B19D171AE00941AEA /* ColorCollection.m */,
+				FFCB1CB219D3E5EA00D6AF86 /* FontCollection.h */,
+				FFCB1CB319D3E5EA00D6AF86 /* FontCollection.m */,
 				FFCD2C2C19D171AE00941AEA /* DialogCollection.h */,
 				FFCD2C2D19D171AE00941AEA /* DialogCollection.m */,
 			);
@@ -366,6 +376,7 @@
 			files = (
 				FFCD2C3419D171B700941AEA /* DataFetchingClient.m in Sources */,
 				FFCD2C2419D10FD800941AEA /* ContractViewController.m in Sources */,
+				FFCB1CB719D40E4300D6AF86 /* GeneralStorage.m in Sources */,
 				FFCD2C3919D172CC00941AEA /* GeneralTableViewCell.m in Sources */,
 				FF94B25419CC7660005B279C /* LoginViewController.m in Sources */,
 				FF94B21C19CC1D75005B279C /* AppDelegate.m in Sources */,
@@ -374,6 +385,7 @@
 				FFCD2C3519D171B700941AEA /* LoginClient.m in Sources */,
 				FF65F7D619CFC1FF007D8DD3 /* MainController.m in Sources */,
 				FFCD2C2F19D171AE00941AEA /* DialogCollection.m in Sources */,
+				FFCB1CB419D3E5EA00D6AF86 /* FontCollection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

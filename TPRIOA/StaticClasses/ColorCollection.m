@@ -33,7 +33,17 @@
 
 + (UIColor *)lightGrayColor
 {
-    return [UIColor colorWithWhite:0.95 alpha:0.9];
+    return [UIColor colorWithWhite:0.95f alpha:0.9f];
+}
+
++ (UIColor *)tableViewHeaderColor
+{
+    return [UIColor colorWithRed:247/255.0f green:247/255.0f blue:247/255.0f alpha:1.0f];
+}
+
++ (UIColor *)headerViewTextColor
+{
+    return [UIColor colorWithWhite:0.5f alpha:0.8f];
 }
 
 @end

@@ -8,17 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-// Static Class
+// StaticClasses
 #import "ColorCollection.h"
+#import "FontCollection.h"
 #import "DialogCollection.h"
 
-// Module
+// Utilities
 #import "DataFetchingClient.h"
 
-@interface ContractViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+// Views
+#import "GeneralTableViewCell.h"
+
+@interface ContractViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
 @property (strong, nonatomic) UITableView *masterView;
-@property (strong, nonatomic) UIView *detailView;
+@property (strong, nonatomic) UITableView *detailView;
 @property (strong, nonatomic) UIView *viewSeparator;
+@property (strong, nonatomic) UISearchBar *searchBar;
 
 @end

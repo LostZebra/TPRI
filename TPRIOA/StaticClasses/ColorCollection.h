@@ -19,4 +19,8 @@
 
 + (UIColor *)lightGrayColor;
 
++ (UIColor *)tableViewHeaderColor;
+
++ (UIColor *)headerViewTextColor;
+
 @end

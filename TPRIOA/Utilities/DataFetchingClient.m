@@ -20,8 +20,8 @@
         dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0f * NSEC_PER_SEC));
         dispatch_after(delay, dispatch_get_main_queue(), ^(void)
                        {
-                           for (int i = 1; i <= 100; i++) {
-                               [array addObject:[NSNumber numberWithInt:i]];
+                           for (int i = 1; i <= 20; i++) {
+                               [array addObject:@"西安华能集团有限公司伞塔路热工研究院200吨级煤发电项目"];
                            }
                            cb();
                        });

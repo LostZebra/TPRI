@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+
+// StaticClasses
+#import "FontCollection.h"
 
 @interface GeneralTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) UILabel *titleLabel;
-@property (strong, nonatomic) UILabel *lastModifiedLabel;
+@property (strong, nonatomic) UILabel *departmentLabel;
+@property (strong, nonatomic) UILabel *statusLabel;
+
+- (void)cellConfigureWithPreHandler: (void (^)(void))pb;
 
 @end
