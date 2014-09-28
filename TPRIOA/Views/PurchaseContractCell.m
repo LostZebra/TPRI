@@ -6,16 +6,16 @@
 //  Copyright (c) 2014年 xiaoyong. All rights reserved.
 //
 
-#import "GeneralTableViewCell.h"
+#import "PurchaseContractCell.h"
 
-NSString *const titleLabelHCons = @"H:|-20-[_titleLabel]";
-NSString *const titleLabelVCons = @"V:|-10-[_titleLabel]";
-NSString *const departmentLabelHCons = @"H:|-20-[_departmentLabel]";
-NSString *const departmentLabelVCons = @"V:[_departmentLabel]-(>=5)-|";
-NSString *const statusLabelHCons = @"H:[_titleLabel]-5-[_statusLabel]-5-|";
-NSString *const statusLabelVCons = @"V:|-10-[_statusLabel]";
+static NSString *const titleLabelHCons = @"H:|-20-[_titleLabel]";
+static NSString *const titleLabelVCons = @"V:|-10-[_titleLabel]";
+static NSString *const departmentLabelHCons = @"H:|-20-[_departmentLabel]";
+static NSString *const departmentLabelVCons = @"V:[_departmentLabel]-(>=5)-|";
+static NSString *const statusLabelHCons = @"H:[_titleLabel]-5-[_statusLabel]-5-|";
+static NSString *const statusLabelVCons = @"V:|-10-[_statusLabel]";
 
-@implementation GeneralTableViewCell
+@implementation PurchaseContractCell
 
 @synthesize titleLabel = _titleLabel;
 @synthesize departmentLabel = _departmentLabel;

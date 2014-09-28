@@ -12,7 +12,6 @@
 
 @synthesize userDataDefaults;
 
-// Static
 static GeneralStorage *generalStorage = nil;
 
 + (GeneralStorage *)getSharedInstance
@@ -33,27 +32,43 @@ static GeneralStorage *generalStorage = nil;
     return self;
 }
 
+#pragma mark LoginRelated
+
+- (void)setUsrStatusFlag:(BOOL)status
+{
+    [self.userDataDefaults setBool:status forKey:@"UserExisted"];
+}
+
+- (void)setAutoLoginFlag:(BOOL)willAutoLogin
+{
+    [self.userDataDefaults setBool:willAutoLogin forKey:@"WillAutoLogin"];
+}
+
+- (BOOL)isUsrExisted
+{
+    return [self.userDataDefaults boolForKey:@"UserExisted"];
+}
+
+- (BOOL)willAutoLogin
+{
+    return [self.userDataDefaults boolForKey:@"WillAutoLogin"];
+}
+
 - (NSArray *)getUsrLoginData
 {
     NSMutableArray *loginDataArray = nil;
-    if ([self.userDataDefaults boolForKey:@"IsLogined"] == YES) {
+    if ([self.userDataDefaults boolForKey:@"UserExisted"] == YES) {
         loginDataArray = [[NSMutableArray alloc] initWithCapacity:2];
         [loginDataArray addObject:[self.userDataDefaults objectForKey:@"Username"]];
         [loginDataArray addObject:[self.userDataDefaults objectForKey:@"Password"]];
     }
-    if (loginDataArray == nil) {
-        return nil;
-    }
-    return [NSArray arrayWithArray:loginDataArray];
+    return loginDataArray == nil ? loginDataArray : [NSArray arrayWithArray:loginDataArray];
 }
 
-- (void)setLoginStatusFlag:(BOOL)status
+- (void)registerUsrLocally:(NSArray *)usrLoginArray
 {
-    [self.userDataDefaults setBool:status forKey:@"IsLogined"];
-}
-
-- (void)setUsrLoginData:(NSArray *)usrLoginArray
-{
+    [self setUsrStatusFlag:YES];
+    [self setAutoLoginFlag:YES];
     [self.userDataDefaults setObject:[usrLoginArray objectAtIndex:0] forKey:@"Username"];
     [self.userDataDefaults setObject:[usrLoginArray objectAtIndex:1] forKey:@"Password"];
 }

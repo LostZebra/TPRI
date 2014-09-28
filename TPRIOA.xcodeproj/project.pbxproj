@@ -33,12 +33,15 @@
 		FF94B25519CC7660005B279C /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF94B25319CC7660005B279C /* LoginViewController.xib */; };
 		FFCB1CB419D3E5EA00D6AF86 /* FontCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCB1CB319D3E5EA00D6AF86 /* FontCollection.m */; };
 		FFCB1CB719D40E4300D6AF86 /* GeneralStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCB1CB619D40E4300D6AF86 /* GeneralStorage.m */; };
-		FFCD2C2419D10FD800941AEA /* ContractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCD2C2319D10FD800941AEA /* ContractViewController.m */; };
+		FFCB1CBA19D5001500D6AF86 /* UndoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCB1CB919D5001500D6AF86 /* UndoneViewController.m */; };
+		FFCB1CCC19D50AC600D6AF86 /* UndoneItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCB1CCB19D50AC600D6AF86 /* UndoneItemCell.m */; };
+		FFCB1CD919D7F47F00D6AF86 /* CustomizePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCB1CD819D7F47F00D6AF86 /* CustomizePickerView.m */; };
+		FFCD2C2419D10FD800941AEA /* PurchaseContractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCD2C2319D10FD800941AEA /* PurchaseContractViewController.m */; };
 		FFCD2C2E19D171AE00941AEA /* ColorCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCD2C2B19D171AE00941AEA /* ColorCollection.m */; };
 		FFCD2C2F19D171AE00941AEA /* DialogCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCD2C2D19D171AE00941AEA /* DialogCollection.m */; };
 		FFCD2C3419D171B700941AEA /* DataFetchingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCD2C3119D171B700941AEA /* DataFetchingClient.m */; };
 		FFCD2C3519D171B700941AEA /* LoginClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCD2C3319D171B700941AEA /* LoginClient.m */; };
-		FFCD2C3919D172CC00941AEA /* GeneralTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCD2C3819D172CC00941AEA /* GeneralTableViewCell.m */; };
+		FFCD2C3919D172CC00941AEA /* PurchaseContractCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCD2C3819D172CC00941AEA /* PurchaseContractCell.m */; };
 		FFCE16E519CD8E260009853D /* info_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCE16E319CD8E260009853D /* info_button@2x.png */; };
 /* End PBXBuildFile section */
 
@@ -88,8 +91,17 @@
 		FFCB1CB319D3E5EA00D6AF86 /* FontCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FontCollection.m; path = TPRIOA/StaticClasses/FontCollection.m; sourceTree = SOURCE_ROOT; };
 		FFCB1CB519D40E4300D6AF86 /* GeneralStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GeneralStorage.h; path = TPRIOA/Utilities/GeneralStorage.h; sourceTree = SOURCE_ROOT; };
 		FFCB1CB619D40E4300D6AF86 /* GeneralStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GeneralStorage.m; path = TPRIOA/Utilities/GeneralStorage.m; sourceTree = SOURCE_ROOT; };
-		FFCD2C2219D10FD800941AEA /* ContractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContractViewController.h; sourceTree = "<group>"; };
-		FFCD2C2319D10FD800941AEA /* ContractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContractViewController.m; sourceTree = "<group>"; };
+		FFCB1CB819D5001500D6AF86 /* UndoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UndoneViewController.h; sourceTree = "<group>"; };
+		FFCB1CB919D5001500D6AF86 /* UndoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UndoneViewController.m; sourceTree = "<group>"; };
+		FFCB1CCA19D50AC600D6AF86 /* UndoneItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UndoneItemCell.h; sourceTree = "<group>"; };
+		FFCB1CCB19D50AC600D6AF86 /* UndoneItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UndoneItemCell.m; sourceTree = "<group>"; };
+		FFCB1CD219D5147000D6AF86 /* BaseSplitViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSplitViewProtocol.h; sourceTree = "<group>"; };
+		FFCB1CD319D5147000D6AF86 /* BaseUIProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseUIProtocol.h; sourceTree = "<group>"; };
+		FFCB1CD719D7F47F00D6AF86 /* CustomizePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomizePickerView.h; sourceTree = "<group>"; };
+		FFCB1CD819D7F47F00D6AF86 /* CustomizePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomizePickerView.m; sourceTree = "<group>"; };
+		FFCB1CDA19D7FA0B00D6AF86 /* ButtonDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonDelegate.h; sourceTree = "<group>"; };
+		FFCD2C2219D10FD800941AEA /* PurchaseContractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseContractViewController.h; sourceTree = "<group>"; };
+		FFCD2C2319D10FD800941AEA /* PurchaseContractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseContractViewController.m; sourceTree = "<group>"; };
 		FFCD2C2A19D171AE00941AEA /* ColorCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorCollection.h; path = TPRIOA/StaticClasses/ColorCollection.h; sourceTree = SOURCE_ROOT; };
 		FFCD2C2B19D171AE00941AEA /* ColorCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorCollection.m; path = TPRIOA/StaticClasses/ColorCollection.m; sourceTree = SOURCE_ROOT; };
 		FFCD2C2C19D171AE00941AEA /* DialogCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialogCollection.h; path = TPRIOA/StaticClasses/DialogCollection.h; sourceTree = SOURCE_ROOT; };
@@ -98,8 +110,8 @@
 		FFCD2C3119D171B700941AEA /* DataFetchingClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataFetchingClient.m; path = TPRIOA/Utilities/DataFetchingClient.m; sourceTree = SOURCE_ROOT; };
 		FFCD2C3219D171B700941AEA /* LoginClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginClient.h; path = TPRIOA/Utilities/LoginClient.h; sourceTree = SOURCE_ROOT; };
 		FFCD2C3319D171B700941AEA /* LoginClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginClient.m; path = TPRIOA/Utilities/LoginClient.m; sourceTree = SOURCE_ROOT; };
-		FFCD2C3719D172CC00941AEA /* GeneralTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralTableViewCell.h; sourceTree = "<group>"; };
-		FFCD2C3819D172CC00941AEA /* GeneralTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralTableViewCell.m; sourceTree = "<group>"; };
+		FFCD2C3719D172CC00941AEA /* PurchaseContractCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseContractCell.h; sourceTree = "<group>"; };
+		FFCD2C3819D172CC00941AEA /* PurchaseContractCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseContractCell.m; sourceTree = "<group>"; };
 		FFCE16E319CD8E260009853D /* info_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_button@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,8 +175,10 @@
 				FF94B25319CC7660005B279C /* LoginViewController.xib */,
 				FF65F7D419CFC1FF007D8DD3 /* MainController.h */,
 				FF65F7D519CFC1FF007D8DD3 /* MainController.m */,
-				FFCD2C2219D10FD800941AEA /* ContractViewController.h */,
-				FFCD2C2319D10FD800941AEA /* ContractViewController.m */,
+				FFCD2C2219D10FD800941AEA /* PurchaseContractViewController.h */,
+				FFCD2C2319D10FD800941AEA /* PurchaseContractViewController.m */,
+				FFCB1CB819D5001500D6AF86 /* UndoneViewController.h */,
+				FFCB1CB919D5001500D6AF86 /* UndoneViewController.m */,
 				FF94B22019CC1D75005B279C /* Main.storyboard */,
 				FF94B22319CC1D75005B279C /* Images.xcassets */,
 				FF94B22519CC1D75005B279C /* LaunchScreen.xib */,
@@ -172,6 +186,7 @@
 				FF65F7D319CFB279007D8DD3 /* Utilities */,
 				FFCD2C2919D16F1900941AEA /* ModuleObjects */,
 				FFCD2C3619D1729800941AEA /* Views */,
+				FFCB1CD119D5147000D6AF86 /* Protocol */,
 				FF94B24519CC3BD0005B279C /* icon */,
 				FF94B21619CC1D75005B279C /* Supporting Files */,
 			);
@@ -227,6 +242,16 @@
 			path = icon;
 			sourceTree = "<group>";
 		};
+		FFCB1CD119D5147000D6AF86 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				FFCB1CD219D5147000D6AF86 /* BaseSplitViewProtocol.h */,
+				FFCB1CD319D5147000D6AF86 /* BaseUIProtocol.h */,
+				FFCB1CDA19D7FA0B00D6AF86 /* ButtonDelegate.h */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		FFCD2C2519D1100E00941AEA /* StaticClasses */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,8 +276,12 @@
 		FFCD2C3619D1729800941AEA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FFCD2C3719D172CC00941AEA /* GeneralTableViewCell.h */,
-				FFCD2C3819D172CC00941AEA /* GeneralTableViewCell.m */,
+				FFCD2C3719D172CC00941AEA /* PurchaseContractCell.h */,
+				FFCD2C3819D172CC00941AEA /* PurchaseContractCell.m */,
+				FFCB1CCA19D50AC600D6AF86 /* UndoneItemCell.h */,
+				FFCB1CCB19D50AC600D6AF86 /* UndoneItemCell.m */,
+				FFCB1CD719D7F47F00D6AF86 /* CustomizePickerView.h */,
+				FFCB1CD819D7F47F00D6AF86 /* CustomizePickerView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -375,15 +404,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFCD2C3419D171B700941AEA /* DataFetchingClient.m in Sources */,
-				FFCD2C2419D10FD800941AEA /* ContractViewController.m in Sources */,
+				FFCB1CD919D7F47F00D6AF86 /* CustomizePickerView.m in Sources */,
+				FFCD2C2419D10FD800941AEA /* PurchaseContractViewController.m in Sources */,
 				FFCB1CB719D40E4300D6AF86 /* GeneralStorage.m in Sources */,
-				FFCD2C3919D172CC00941AEA /* GeneralTableViewCell.m in Sources */,
+				FFCB1CBA19D5001500D6AF86 /* UndoneViewController.m in Sources */,
+				FFCD2C3919D172CC00941AEA /* PurchaseContractCell.m in Sources */,
 				FF94B25419CC7660005B279C /* LoginViewController.m in Sources */,
 				FF94B21C19CC1D75005B279C /* AppDelegate.m in Sources */,
 				FFCD2C2E19D171AE00941AEA /* ColorCollection.m in Sources */,
 				FF94B21919CC1D75005B279C /* main.m in Sources */,
 				FFCD2C3519D171B700941AEA /* LoginClient.m in Sources */,
 				FF65F7D619CFC1FF007D8DD3 /* MainController.m in Sources */,
+				FFCB1CCC19D50AC600D6AF86 /* UndoneItemCell.m in Sources */,
 				FFCD2C2F19D171AE00941AEA /* DialogCollection.m in Sources */,
 				FFCB1CB419D3E5EA00D6AF86 /* FontCollection.m in Sources */,
 			);

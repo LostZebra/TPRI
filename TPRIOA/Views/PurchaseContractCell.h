@@ -12,7 +12,7 @@
 // StaticClasses
 #import "FontCollection.h"
 
-@interface GeneralTableViewCell : UITableViewCell
+@interface PurchaseContractCell : UITableViewCell
 
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) UILabel *departmentLabel;

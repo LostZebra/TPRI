@@ -14,10 +14,16 @@
 
 + (GeneralStorage *)getSharedInstance;
 
+- (void)setUsrStatusFlag:(BOOL)status;
+
+- (void)setAutoLoginFlag:(BOOL)willAutoLogin;
+
+- (BOOL)isUsrExisted;
+
+- (BOOL)willAutoLogin;
+
 - (NSArray *)getUsrLoginData;
 
-- (void)setLoginStatusFlag:(BOOL)status;
-
-- (void)setUsrLoginData:(NSArray *)usrLoginArray;
+- (void)registerUsrLocally:(NSArray *)usrLoginArray;
 
 @end

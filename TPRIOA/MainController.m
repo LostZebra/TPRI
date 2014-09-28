@@ -8,6 +8,18 @@
 
 #import "MainController.h"
 
+// StaticClasses
+#import "ColorCollection.h"
+#import "FontCollection.h"
+#import "DialogCollection.h"
+
+// ViewControllers
+#import "UndoneViewController.h"
+#import "PurchaseContractViewController.h"
+
+// Utilities
+#import "GeneralStorage.h"
+
 NSString *const usrIdLabelHCons = @"H:|-30-[_usrIdLabel]";
 NSString *const usrIdLabelVCons = @"V:|-30-[_usrIdLabel]";
 NSString *const loginedImageViewHCons = @"H:[_usrIdLabel]-0-[_loginedImageView(==20)]";
@@ -34,14 +46,7 @@ static NSString *const cellIndentifier = @"CollectionCell";
     [super viewDidLoad];
     [self prepareData];
     [self buildNavigationBar];
-    [self buildContraintsOnUIElements];
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellIndentifier];
-    
-    // Do any additional setup after loading the view.
+    [self buildConstraintsOnUIElements];
 }
 
 - (void)prepareData
@@ -49,8 +54,8 @@ static NSString *const cellIndentifier = @"CollectionCell";
     // 在刚登录时准备数据
     // ...
     // 储存每个item的icon
-    _labelOrderDictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"代办事宜", @(0), @"已办事宜", @(1), @"签报管理", @(2), @"会议管理", @(3), @"通知公告", @(4), @"收文管理", @(5), @"技术报告", @(6), @"采购合同", @(7), @"收入合同", @(8), @"双周工作汇报", @(9), @"阅览室", @(10), nil];
-    _iconOrderDictionary = [NSDictionary dictionaryWithObjectsAndKeys:[UIImage imageNamed:@"done@2x"], @(0), [UIImage imageNamed:@"undone@2x"], @(1), [UIImage imageNamed:@"signature_management@2x"], @(2), [UIImage imageNamed:@"meeting_management@2x"], @(3), [UIImage imageNamed:@"bulletin@2x"], @(4), [UIImage imageNamed:@"document_management@2x"], @(5), [UIImage imageNamed:@"tech_report@2x"], @(6), [UIImage imageNamed:@"purchase_contract@2x"], @(7), [UIImage imageNamed:@"income_contract@2x"], @(8), [UIImage imageNamed:@"work_report@2x"], @(9), [UIImage imageNamed:@"reading@2x"], @(10), nil];
+    self.labelOrderDictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"代办事宜", @(0), @"已办事宜", @(1), @"签报管理", @(2), @"会议管理", @(3), @"通知公告", @(4), @"收文管理", @(5), @"技术报告", @(6), @"采购合同", @(7), @"收入合同", @(8), @"双周工作汇报", @(9), @"阅览室", @(10), nil];
+    self.iconOrderDictionary = [NSDictionary dictionaryWithObjectsAndKeys:[UIImage imageNamed:@"done@2x"], @(0), [UIImage imageNamed:@"undone@2x"], @(1), [UIImage imageNamed:@"signature_management@2x"], @(2), [UIImage imageNamed:@"meeting_management@2x"], @(3), [UIImage imageNamed:@"bulletin@2x"], @(4), [UIImage imageNamed:@"document_management@2x"], @(5), [UIImage imageNamed:@"tech_report@2x"], @(6), [UIImage imageNamed:@"purchase_contract@2x"], @(7), [UIImage imageNamed:@"income_contract@2x"], @(8), [UIImage imageNamed:@"work_report@2x"], @(9), [UIImage imageNamed:@"reading@2x"], @(10), nil];
     self.title = @"返回主菜单";
 }
 
@@ -79,18 +84,18 @@ static NSString *const cellIndentifier = @"CollectionCell";
     self.navigationItem.titleView = titleLabel;
 }
 
-- (void)buildContraintsOnUIElements
+- (void)buildConstraintsOnUIElements
 {
     self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellIndentifier];
     self.collectionView.delegate = self;
     // 用户名的Label
-    _usrIdLabel = [[UILabel alloc] init];
-    _usrIdLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [_usrIdLabel setFont:[FontCollection standardBoldFontStyleWithSize:17.0f]];
-    [_usrIdLabel setTextAlignment:NSTextAlignmentCenter];
-    [_usrIdLabel setText:@"肖勇"];
-    [_usrIdLabel sizeToFit];
+    self.usrIdLabel = [[UILabel alloc] init];
+    self.usrIdLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.usrIdLabel setFont:[FontCollection standardBoldFontStyleWithSize:17.0f]];
+    [self.usrIdLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.usrIdLabel setText:@"肖勇"];
+    [self.usrIdLabel sizeToFit];
     [self.view addSubview:_usrIdLabel];
     // 为用户名的Label添加约束
     NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_usrIdLabel);
@@ -98,9 +103,9 @@ static NSString *const cellIndentifier = @"CollectionCell";
     [constraintsArray addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:usrIdLabelHCons options:0 metrics:nil views:viewDictionary]];
     [constraintsArray addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:usrIdLabelVCons options:0 metrics:nil views:viewDictionary]];
     // 指示用户当前登录成功的ImageView
-    _loginedImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logined_status@2x"]];
-    _loginedImageView.translatesAutoresizingMaskIntoConstraints = NO;
-    _loginedImageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.loginedImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logined_status@2x"]];
+    self.loginedImageView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.loginedImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:_loginedImageView];
     // 为指示用户当前登录成功的ImageView添加约束
     viewDictionary = NSDictionaryOfVariableBindings(_usrIdLabel, _loginedImageView);
@@ -108,10 +113,10 @@ static NSString *const cellIndentifier = @"CollectionCell";
     [constraintsArray addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:loginedImageViewVCons options:0 metrics:nil views:viewDictionary]];
     [constraintsArray addObject:[NSLayoutConstraint constraintWithItem:_loginedImageView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:_usrIdLabel attribute:NSLayoutAttributeLeading multiplier:1.0f constant:0.0f]];
     // 获取用户信息的Button
-    _usrInfoButton = [[UIButton alloc] init];
-    _usrInfoButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [_usrInfoButton setBackgroundImage:[UIImage imageNamed:@"info_button_dark@2x"] forState:UIControlStateNormal];
-    _usrInfoButton.contentMode = UIViewContentModeScaleAspectFit;
+    self.usrInfoButton = [[UIButton alloc] init];
+    self.usrInfoButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.usrInfoButton setBackgroundImage:[UIImage imageNamed:@"info_button_dark@2x"] forState:UIControlStateNormal];
+    self.usrInfoButton.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:_usrInfoButton];
     // 为获取用户信息的Button添加约束
     viewDictionary = NSDictionaryOfVariableBindings(_usrInfoButton);
@@ -127,20 +132,16 @@ static NSString *const cellIndentifier = @"CollectionCell";
     [DialogCollection showAlertViewWithTitle:@"退出登录" andMessage:@"你确定要退出登录么?"cancelButton:@"取消" otherButton:@"确定" delagate:self];
 }
 
-// Registered delegates
+#pragma mark <UIAlertViewDelegate>
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     // 判断退出登录行为
     if (buttonIndex == 1) {
         [self dismissViewControllerAnimated:true completion:^{
-            // Do nothing
+            // 注销后下次不再自动登录
+            [[GeneralStorage getSharedInstance] setAutoLoginFlag:NO];
         }];
     }
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*
@@ -153,7 +154,7 @@ static NSString *const cellIndentifier = @"CollectionCell";
 }
 */
 
-#pragma mark <UICollectionViewDataSource>
+#pragma mark <UICollectionViewDelegate>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
@@ -198,11 +199,6 @@ static NSString *const cellIndentifier = @"CollectionCell";
     return cell;
 }
 
-- (NSUInteger)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskAll;
-}
-
 #pragma mark <UICollectionViewDelegate>
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -215,9 +211,19 @@ static NSString *const cellIndentifier = @"CollectionCell";
         cellSelected.center = p;
     } completion:^(BOOL finished) {
         if (finished) {
-            if (indexPath.item == 7) {
-                ContractViewController *contractViewController = [[ContractViewController alloc] init];
-                [self.navigationController pushViewController:contractViewController animated:YES];
+            switch (indexPath.item) {
+                case 0: {
+                    UndoneViewController *undoneViewController = [[UndoneViewController alloc] init];
+                    [self.navigationController pushViewController:undoneViewController animated:YES];
+                    break;
+                }
+                case 7: {
+                    PurchaseContractViewController *contractViewController = [[PurchaseContractViewController alloc] init];
+                    [self.navigationController pushViewController:contractViewController animated:YES];
+                    break;
+                }
+                default:
+                    break;
             }
             CGPoint p = cellSelected.center;
             p.x -= 5;
@@ -225,6 +231,17 @@ static NSString *const cellIndentifier = @"CollectionCell";
             cellSelected.center = p;
         }
     }];
+}
+
+#pragma mark Ignorable
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAll;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 /*

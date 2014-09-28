@@ -8,18 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-// StaticClasses
-#import "ColorCollection.h"
-#import "FontCollection.h"
-#import "DialogCollection.h"
+// Protocol
+#import "BaseUIProtocol.h"
+#import "BaseSplitViewProtocol.h"
 
-// Utilities
-#import "DataFetchingClient.h"
-
-// Views
-#import "GeneralTableViewCell.h"
-
-@interface ContractViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
+@interface PurchaseContractViewController : UIViewController<BaseUIProtocol, BaseSplitViewProtocol, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
 @property (strong, nonatomic) UITableView *masterView;
 @property (strong, nonatomic) UITableView *detailView;

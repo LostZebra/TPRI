@@ -10,6 +10,8 @@
 
 @interface DataFetchingClient : NSObject
 
-- (void)fetchDataInto: (NSMutableArray *)array completionHandler: (void (^)(void))cb;
+- (void)fetchDataIntoArray: (NSMutableArray *)array completionHandler: (void (^)(void))cb;
+
+- (void)fetchDataIntoDictionary:(NSMutableDictionary *)dictionary completionHandler:(void (^)(void))cb;
 
 @end

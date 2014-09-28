@@ -10,6 +10,12 @@
 
 @implementation DialogCollection
 
++ (id)alloc
+{
+    NSAssert(false, @"This class is a static one which forbids explicit memory allocation");
+    return nil;
+}
+
 - (id)init
 {
     NSAssert(false, @"This class is a static one which forbids explicit initiation");
@@ -70,6 +76,14 @@
     [rootView addConstraint:[NSLayoutConstraint constraintWithItem:inProgressView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:rootView attribute:NSLayoutAttributeCenterY multiplier:1.0f constant:0.0f]];
     [rootView addConstraint:[NSLayoutConstraint constraintWithItem:inProgressView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:rootView attribute:NSLayoutAttributeWidth multiplier:0.0f constant:80.0f]];
     [rootView addConstraint:[NSLayoutConstraint constraintWithItem:inProgressView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:rootView attribute:NSLayoutAttributeHeight multiplier:0.0f constant:80.0f]];
+}
+
++ (UIView *)showMaskView
+{
+    UIView *maskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    [maskView setBackgroundColor:[ColorCollection maskViewColor]];
+    [[[UIApplication sharedApplication] keyWindow] addSubview:maskView];
+    return maskView;
 }
 
 @end

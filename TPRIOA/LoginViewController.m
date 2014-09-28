@@ -8,26 +8,35 @@
 
 #import "LoginViewController.h"
 
+// ViewControllers
+#import "MainController.h"
+
+// StaticClasses
+#import "ColorCollection.h"
+#import "FontCollection.h"
+#import "DialogCollection.h"
+
+// Utilities
+#import "LoginClient.h"
+#import "GeneralStorage.h"
+
 // Constrains
-NSString *const titleLogoImageHCons = @"H:[_titleLogoImage(==200)]";
-NSString *const titleLogoImageVCons = @"V:|-60-[_titleLogoImage(==33)]";
-NSString *const usrNameTextFieldHCons = @"H:[_usrNameTextField(==350)]";
-NSString *const usrNameTextFieldVCons = @"V:[_titleLogoImage]-60-[_usrNameTextField]";
-NSString *const passwordTextFieldHCons = @"H:[_passwordTextField(==350)]";
-NSString *const passwordTextFieldVCons = @"V:[_usrNameTextField]-10-[_passwordTextField]";
-NSString *const loginButtonHCons = @"H:[_confirmLoginButton(==100)]";
-NSString *const loginButtonVCons = @"V:[_passwordTextField]-30-[_confirmLoginButton(==30)]";
+static NSString *const titleLogoImageHCons = @"H:[_titleLogoImage(==200)]";
+static NSString *const titleLogoImageVCons = @"V:|-60-[_titleLogoImage(==33)]";
+static NSString *const usrNameTextFieldHCons = @"H:[_usrNameTextField(==350)]";
+static NSString *const usrNameTextFieldVCons = @"V:[_titleLogoImage]-60-[_usrNameTextField]";
+static NSString *const passwordTextFieldHCons = @"H:[_passwordTextField(==350)]";
+static NSString *const passwordTextFieldVCons = @"V:[_usrNameTextField]-10-[_passwordTextField]";
+static NSString *const loginButtonHCons = @"H:[_confirmLoginButton(==100)]";
+static NSString *const loginButtonVCons = @"V:[_passwordTextField]-30-[_confirmLoginButton(==30)]";
 
 @interface LoginViewController ()
-{
-    GeneralStorage *generalStorage;
-}
 
 @end
 
 @implementation LoginViewController
 {
-    UIView *inProgressView;
+    GeneralStorage *generalStorage;
 }
 
 @synthesize titleLogoImage = _titleLogoImage;
@@ -47,8 +56,25 @@ NSString *const loginButtonVCons = @"V:[_passwordTextField]-30-[_confirmLoginBut
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self buildNavigationBar];
-    [self buildingConstraintsOnUIElements];
-    // Do any additional setup after loading the view from its nib.
+    [self buildConstraintsOnUIElements];
+    // 如果曾经登录过,获得曾经登录时使用的用户名,如果需要自动登录,则自动登录
+    if ([generalStorage isUsrExisted]) {
+        [self prepareData];
+        if ([generalStorage willAutoLogin]) {
+            [self login];
+        }
+    }
+}
+
+#pragma mark <BaseUIProtocol>
+
+- (void)prepareData
+{
+    NSArray *usrLoginDataArray = [generalStorage getUsrLoginData];
+    if (usrLoginDataArray != nil) {
+        self.usrNameTextField.text = [usrLoginDataArray objectAtIndex:0];
+        self.passwordTextField.text = [usrLoginDataArray objectAtIndex:1];
+    }
 }
 
 - (void)buildNavigationBar
@@ -70,7 +96,7 @@ NSString *const loginButtonVCons = @"V:[_passwordTextField]-30-[_confirmLoginBut
     self.navigationItem.titleView = titleLabel;
 }
 
-- (void)buildingConstraintsOnUIElements
+- (void)buildConstraintsOnUIElements
 {
     // 判断系统版本,如为7.x将xib文件中的已有约束删除
     NSArray *iosVersion = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
@@ -81,38 +107,36 @@ NSString *const loginButtonVCons = @"V:[_passwordTextField]-30-[_confirmLoginBut
     NSMutableArray *constraintsArray = [[NSMutableArray alloc] init];
     NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_titleLogoImage);
     // 顶部热工院Logo的界面约束
-    _titleLogoImage.contentMode = UIViewContentModeScaleAspectFit;
+    self.titleLogoImage.contentMode = UIViewContentModeScaleAspectFit;
     [constraintsArray addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:titleLogoImageHCons options:0 metrics:nil views:viewDictionary]];
     [constraintsArray addObject:[NSLayoutConstraint constraintWithItem:_titleLogoImage attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0.0f]];
     [constraintsArray addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:titleLogoImageVCons options:0 metrics:nil views:viewDictionary]];
     // 用户名输入框的界面约束
-    _usrNameTextField.delegate = self;
+    self.usrNameTextField.delegate = self;
     viewDictionary = NSDictionaryOfVariableBindings(_titleLogoImage, _usrNameTextField);
     [constraintsArray addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:usrNameTextFieldHCons options:0 metrics:nil views:viewDictionary]];
     [constraintsArray addObject:[NSLayoutConstraint constraintWithItem:_usrNameTextField attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0.0f]];
     [constraintsArray addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:usrNameTextFieldVCons options:0 metrics:nil views:viewDictionary]];
     // 密码输入框的界面约束
-    _passwordTextField.delegate = self;
+    self.passwordTextField.delegate = self;
     viewDictionary = NSDictionaryOfVariableBindings(_usrNameTextField, _passwordTextField);
     [constraintsArray addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:passwordTextFieldHCons options:0 metrics:nil views:viewDictionary]];
     [constraintsArray addObject:[NSLayoutConstraint constraintWithItem:_passwordTextField attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0.0f]];
     [constraintsArray addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:passwordTextFieldVCons options:0 metrics:nil views:viewDictionary]];
     // 登录按钮的界面约束
+    // 用户名,密码框显示细节的设置已在xib文件中设定,这里设定登录按钮的背景颜色和字体颜色
+    [self.confirmLoginButton setTintColor:[UIColor whiteColor]];
+    [self.confirmLoginButton setBackgroundColor:[ColorCollection titleBarColor]];
+    [self.confirmLoginButton.layer setCornerRadius:10];
+    [self.confirmLoginButton addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
     viewDictionary = NSDictionaryOfVariableBindings(_passwordTextField, _confirmLoginButton);
     [constraintsArray addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:loginButtonHCons options:0 metrics:nil views:viewDictionary]];
     [constraintsArray addObject:[NSLayoutConstraint constraintWithItem:_confirmLoginButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0.0f]];
     [constraintsArray addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:loginButtonVCons options:0 metrics:nil views:viewDictionary]];
     [self.view addConstraints:[NSArray arrayWithArray:constraintsArray]];
-    // 用户名,密码框显示细节的设置已在xib文件中设定,这里设定登录按钮的背景颜色和字体颜色
-    [_confirmLoginButton setTintColor:[UIColor whiteColor]];
-    [_confirmLoginButton setBackgroundColor:[ColorCollection titleBarColor]];
-    [_confirmLoginButton.layer setCornerRadius:10];
-    [_confirmLoginButton addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
-    // 如果曾经登录过,获得曾经登录时使用的用户名
-    [self restoreUsrLoginData];
 }
 
-#pragma mark PersonalDefined
+#pragma mark SelfDefined
 
 - (void)showAboutDialog
 {
@@ -130,23 +154,18 @@ NSString *const loginButtonVCons = @"V:[_passwordTextField]-30-[_confirmLoginBut
         // 隐藏键盘
         [self.view endEditing:YES];
         // 登录时为界面蒙上灰色阴影
-        UIView *maskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-        [maskView setBackgroundColor:[UIColor colorWithWhite:0.4 alpha:0.5]];
-        [[[UIApplication sharedApplication] keyWindow] addSubview:maskView];
+        UIView *maskView = [DialogCollection showMaskView];
         // 显示指示正在登录的Progress view
         [DialogCollection showProgressView:@"正在登录" over:self.view];
         // 登录
         LoginClient *loginClient = [[LoginClient alloc] init];
-        [loginClient loginUsing:usrName password:password completionHandler:^(bool isSuccess) {
+        [loginClient loginUsing:usrName password:password completionHandler:^(bool isSuccess, NSError *error) {
+            // 登录完成后使上述两个Subview消失
             [[[self.view subviews] lastObject] removeFromSuperview];
             [maskView removeFromSuperview];
             if (isSuccess) {
                 // 存储用户登录信息
-                NSArray *usrLoginData = @[usrName, password];
-                [generalStorage setUsrLoginData:usrLoginData];
-                [generalStorage setLoginStatusFlag:YES];
-                // 登录完成后使上述两个Subview消失
-                [DialogCollection showAlertViewWithTitle:@"登录状态" andMessage:@"登录成功" withLastingTime:0.5f delegate:self];
+                [generalStorage registerUsrLocally:@[usrName, password]];
                 // 跳转到下一个View]
                 UICollectionViewFlowLayout *collectionViewFlowLayout = [[UICollectionViewFlowLayout alloc] init];
                 collectionViewFlowLayout.itemSize = CGSizeMake(80, 110);
@@ -161,28 +180,15 @@ NSString *const loginButtonVCons = @"V:[_passwordTextField]-30-[_confirmLoginBut
                     // Do nothing
                 }];
             }
-            else
-            {
-                [DialogCollection showAlertViewWithTitle:@"登录状态" andMessage:@"用户名或密码错误" withLastingTime:1.5f delegate:self];
+            else {
+                // 显示登录失败
+                if (error != nil) {
+                    [DialogCollection showAlertViewWithTitle:@"登录错误" andMessage:error.domain withLastingTime:0.5f delegate:self];
+                }
+                
             }
         }];
     }
-}
-
-- (void)restoreUsrLoginData
-{
-    NSArray *usrLoginDataArray = [generalStorage getUsrLoginData];
-    if (usrLoginDataArray != nil){
-        _usrNameTextField.text = [usrLoginDataArray objectAtIndex:0];
-        _passwordTextField.text = [usrLoginDataArray objectAtIndex:1];
-    }
-}
-
-#pragma mark <UIAlertViewDelegate>
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    // 判断登录行为
 }
 
 #pragma mark <UITextFieldDelegate>
@@ -193,10 +199,13 @@ NSString *const loginButtonVCons = @"V:[_passwordTextField]-30-[_confirmLoginBut
         [self.view endEditing:YES];
     }
     else {
+        // 按回车键直接登录
         [self login];
     }
     return YES;
 }
+
+#pragma mark Ignorable
 
 // 登录界面支持所有屏幕方向
 - (NSUInteger)supportedInterfaceOrientations

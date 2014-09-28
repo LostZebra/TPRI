@@ -9,15 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-// StaticClasses
-#import "ColorCollection.h"
-#import "FontCollection.h"
-#import "DialogCollection.h"
+// Protocol
+#import "BaseUIProtocol.h"
 
-// ViewControllers
-#import "ContractViewController.h"
-
-@interface MainController : UICollectionViewController<UIAlertViewDelegate>
+@interface MainController : UICollectionViewController<BaseUIProtocol, UIAlertViewDelegate>
 
 @property (strong, nonatomic) UILabel *usrIdLabel;
 @property (strong, nonatomic) UIImageView *loginedImageView;

@@ -17,10 +17,18 @@
 
 + (UIColor *)positiveUIColor;
 
++ (UIColor *)defaultBlueColor;
+
 + (UIColor *)lightGrayColor;
+
++ (UIColor *)darkGrayColor;
 
 + (UIColor *)tableViewHeaderColor;
 
 + (UIColor *)headerViewTextColor;
+
++ (UIColor *)maskViewColor;
+
++ (UIColor *)whiteColor;
 
 @end

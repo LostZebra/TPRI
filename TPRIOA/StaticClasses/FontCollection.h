@@ -15,4 +15,6 @@
 
 + (UIFont *)standardBoldFontStyleWithSize:(CGFloat)fontSize;
 
++ (UIFont *)fontWithFontFamilyName:(NSString *)fontFamily andSize:(CGFloat)fontSize;
+
 @end

@@ -11,6 +11,7 @@
 
 // StaticClasses
 #import "FontCollection.h"
+#import "ColorCollection.h"
 
 @interface DialogCollection : NSObject
 
@@ -19,5 +20,7 @@
 + (void)showAlertViewWithTitle:(NSString *)title andMessage:(NSString *)message cancelButton:(NSString *)cancelButtonLabel otherButton:(NSString *)otherButtonLabel delagate:(id)del;
 
 + (void)showProgressView:(NSString *)status over:(UIView *)rootView;
+
++ (UIView *)showMaskView;
 
 @end

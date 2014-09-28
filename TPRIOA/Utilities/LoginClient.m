@@ -19,7 +19,7 @@
     return self;
 }
 
-- (void)loginUsing:(NSString *)usrName password:(NSString *)password completionHandler:(void (^)(bool isSuccess))cb
+- (void)loginUsing:(NSString *)usrName password:(NSString *)password completionHandler:(loginCompletionHandler)completionHandler
 {
     dispatch_queue_t asyncQueue = dispatch_get_main_queue();
     dispatch_async(asyncQueue, ^{
@@ -29,7 +29,8 @@
         dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0f * NSEC_PER_SEC));
         dispatch_after(delay, dispatch_get_main_queue(), ^(void)
                        {
-                           cb(YES);
+                           NSError *loginError = nil;
+                           completionHandler(YES, loginError);
                        });
     });
 }

@@ -9,19 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-// ViewControllers
-#import "MainController.h"
+// Protocol
+#import "BaseUIProtocol.h"
 
-// StaticClasses
-#import "ColorCollection.h"
-#import "FontCollection.h"
-#import "DialogCollection.h"
-
-// Utilities
-#import "LoginClient.h"
-#import "GeneralStorage.h"
-
-@interface LoginViewController : UIViewController<UIAlertViewDelegate, UITextFieldDelegate>
+@interface LoginViewController : UIViewController<BaseUIProtocol, UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *titleLogoImage;
 @property (strong, nonatomic) IBOutlet UITextField *usrNameTextField;

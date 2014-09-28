@@ -10,6 +10,12 @@
 
 @implementation FontCollection
 
++ (id)alloc
+{
+    NSAssert(false, @"This class is a static one which forbids explicit memory allocation");
+    return nil;
+}
+
 - (id)init
 {
     NSAssert(false, @"This class is a static one which forbids explicit initiation");
@@ -24,6 +30,11 @@
 + (UIFont *)standardBoldFontStyleWithSize:(CGFloat)fontSize
 {
     return [UIFont fontWithName:@"HelveticaNeue-Bold" size:fontSize];
+}
+
++ (UIFont *)fontWithFontFamilyName:(NSString *)fontFamily andSize:(CGFloat)fontSize
+{
+    return [UIFont fontWithName:fontFamily size:fontSize];
 }
 
 @end

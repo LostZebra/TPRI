@@ -6,23 +6,34 @@
 //  Copyright (c) 2014年 xiaoyong. All rights reserved.
 //
 
-#import "ContractViewController.h"
+#import "PurchaseContractViewController.h"
+
+// StaticClasses
+#import "ColorCollection.h"
+#import "FontCollection.h"
+#import "DialogCollection.h"
+
+// Utilities
+#import "DataFetchingClient.h"
+
+// Views
+#import "PurchaseContractCell.h"
 
 // Constraints
-NSString *const masterViewVCons = @"V:|-0-[_masterView]-0-|";
-NSString *const detailViewHCons = @"H:[_viewSeparator]-0-[_detailView]-0-|";
-NSString *const detailViewVCons = @"V:|-0-[_detailView]-0-|";
-NSString *const viewSeparatorHCons = @"H:[_masterView]-0-[_viewSeparator(==2)]";
-NSString *const viewSeparatorVCons = @"V:|-0-[_viewSeparator]-0-|";
+static NSString *const masterViewVCons = @"V:|-0-[_masterView]-0-|";
+static NSString *const detailViewHCons = @"H:[_viewSeparator]-0-[_detailView]-0-|";
+static NSString *const detailViewVCons = @"V:|-0-[_detailView]-0-|";
+static NSString *const viewSeparatorHCons = @"H:[_masterView]-0-[_viewSeparator(==2)]";
+static NSString *const viewSeparatorVCons = @"V:|-0-[_viewSeparator]-0-|";
 
-NSString *const masterTableViewIdentifier = @"MasterTableViewCell";
-NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
+static NSString *const masterTableViewIdentifier = @"MasterTableViewCell";
+static NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
 
-@interface ContractViewController ()
+@interface PurchaseContractViewController ()
 
 @end
 
-@implementation ContractViewController
+@implementation PurchaseContractViewController
 {
     // Masterview
     NSMutableArray *testArray;
@@ -65,10 +76,9 @@ NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
 
 - (void)prepareData
 {
-    [_detailView reloadData];
     [DialogCollection showProgressView:@"正在加载" over:self.view];
     DataFetchingClient *dataFetchingClient = [[DataFetchingClient alloc] init];
-    [dataFetchingClient fetchDataInto:testArray completionHandler:^{
+    [dataFetchingClient fetchDataIntoArray:testArray completionHandler:^{
         // Testing
         selectedContract = [[NSObject alloc] init];
         detailTableViewLabelArray = [[NSMutableArray alloc] initWithCapacity:4];
@@ -93,7 +103,7 @@ NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
     // 显示概要的Masterview
     _masterView = [[UITableView alloc] init];
     _masterView.translatesAutoresizingMaskIntoConstraints = NO;
-    [_masterView registerClass:[GeneralTableViewCell class] forCellReuseIdentifier:masterTableViewIdentifier];
+    [_masterView registerClass:[PurchaseContractCell class] forCellReuseIdentifier:masterTableViewIdentifier];
     _masterView.delegate = self;
     _masterView.dataSource = self;
     
@@ -175,7 +185,7 @@ NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
 {
     // 左边概要视图中TableViewCell构建
     if (tableView == _masterView) {
-        GeneralTableViewCell *cell = [_masterView dequeueReusableCellWithIdentifier:masterTableViewIdentifier forIndexPath:indexPath];
+        PurchaseContractCell *cell = [_masterView dequeueReusableCellWithIdentifier:masterTableViewIdentifier forIndexPath:indexPath];
         // 配置Cell的内容和样式
         [self configureMasterTableViewCell:cell forIndexPath:indexPath];
         return cell;
@@ -310,14 +320,14 @@ NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
     }];
 }
 
-#pragma mark ConfigureTableViewCell(ignorable)
+#pragma mark ConfigureTableViewCell(inherited&ignorable)
 
-- (void)configureMasterTableViewCell:(GeneralTableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath
+- (void)configureMasterTableViewCell:(PurchaseContractCell *)cell forIndexPath:(NSIndexPath *)indexPath
 {
     [cell cellConfigureWithPreHandler:^{
         [cell.titleLabel setText:@"西安华能集团有限公司伞塔路热工研究院200吨级煤发电项目"];
         [cell.statusLabel setText:@"正在审核"];
-        [cell.statusLabel setTextColor:[UIColor redColor]];
+        [cell.statusLabel setTextColor:[ColorCollection negativeUIColor]];
         [cell.departmentLabel setText:@"院工部"];
     }];
 }
