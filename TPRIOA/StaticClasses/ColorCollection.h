@@ -19,6 +19,8 @@
 
 + (UIColor *)defaultBlueColor;
 
++ (UIColor *)defaultTextColor;
+
 + (UIColor *)lightGrayColor;
 
 + (UIColor *)darkGrayColor;
@@ -30,5 +32,7 @@
 + (UIColor *)maskViewColor;
 
 + (UIColor *)whiteColor;
+
++ (UIColor *)clearColor;
 
 @end

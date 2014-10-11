@@ -21,4 +21,6 @@
 @property (strong, nonatomic) NSDictionary *iconOrderDictionary;
 @property (strong, nonatomic) NSDictionary *labelOrderDictionary;
 
+@property (strong, nonatomic) NSError *error;
+
 @end

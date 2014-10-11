@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF03F06419E7EC2F009FFC34 /* Test1.png in Resources */ = {isa = PBXBuildFile; fileRef = FF03F06319E7EC2F009FFC34 /* Test1.png */; };
+		FF03F06719E7ECA5009FFC34 /* Test3.png in Resources */ = {isa = PBXBuildFile; fileRef = FF03F06519E7ECA5009FFC34 /* Test3.png */; };
+		FF03F06819E7ECA5009FFC34 /* Test2.png in Resources */ = {isa = PBXBuildFile; fileRef = FF03F06619E7ECA5009FFC34 /* Test2.png */; };
+		FF335F5719E815EF009048A8 /* Test4.png in Resources */ = {isa = PBXBuildFile; fileRef = FF335F5619E815EF009048A8 /* Test4.png */; };
 		FF65F7D619CFC1FF007D8DD3 /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF65F7D519CFC1FF007D8DD3 /* MainController.m */; };
 		FF65F7D819CFFDB6007D8DD3 /* info_button_dark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF65F7D719CFFDB6007D8DD3 /* info_button_dark@2x.png */; };
 		FF65F7DC19D00512007D8DD3 /* logined_status@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF65F7DB19D00512007D8DD3 /* logined_status@2x.png */; };
@@ -30,7 +34,7 @@
 		FF94B22719CC1D75005B279C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF94B22519CC1D75005B279C /* LaunchScreen.xib */; };
 		FF94B23319CC1D75005B279C /* TPRIOATests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF94B23219CC1D75005B279C /* TPRIOATests.m */; };
 		FF94B25419CC7660005B279C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF94B25219CC7660005B279C /* LoginViewController.m */; };
-		FF94B25519CC7660005B279C /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF94B25319CC7660005B279C /* LoginViewController.xib */; };
+		FFC70A2B19D8F1540047C9E5 /* BaseMasterDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC70A2A19D8F1540047C9E5 /* BaseMasterDetailViewController.m */; };
 		FFCB1CB419D3E5EA00D6AF86 /* FontCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCB1CB319D3E5EA00D6AF86 /* FontCollection.m */; };
 		FFCB1CB719D40E4300D6AF86 /* GeneralStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCB1CB619D40E4300D6AF86 /* GeneralStorage.m */; };
 		FFCB1CBA19D5001500D6AF86 /* UndoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCB1CB919D5001500D6AF86 /* UndoneViewController.m */; };
@@ -43,6 +47,9 @@
 		FFCD2C3519D171B700941AEA /* LoginClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCD2C3319D171B700941AEA /* LoginClient.m */; };
 		FFCD2C3919D172CC00941AEA /* PurchaseContractCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCD2C3819D172CC00941AEA /* PurchaseContractCell.m */; };
 		FFCE16E519CD8E260009853D /* info_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCE16E319CD8E260009853D /* info_button@2x.png */; };
+		FFCFEABC19E52014005C3593 /* BaseInputController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCFEABB19E52014005C3593 /* BaseInputController.m */; };
+		FFCFEAC019E5363B005C3593 /* AdviseInputController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCFEABF19E5363B005C3593 /* AdviseInputController.m */; };
+		FFCFEAC319E7B032005C3593 /* PhotoGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCFEAC219E7B032005C3593 /* PhotoGalleryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +63,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF03F06319E7EC2F009FFC34 /* Test1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Test1.png; sourceTree = "<group>"; };
+		FF03F06519E7ECA5009FFC34 /* Test3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Test3.png; sourceTree = "<group>"; };
+		FF03F06619E7ECA5009FFC34 /* Test2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Test2.png; sourceTree = "<group>"; };
+		FF335F5619E815EF009048A8 /* Test4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Test4.png; sourceTree = "<group>"; };
 		FF65F7D419CFC1FF007D8DD3 /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		FF65F7D519CFC1FF007D8DD3 /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
 		FF65F7D719CFFDB6007D8DD3 /* info_button_dark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_button_dark@2x.png"; sourceTree = "<group>"; };
@@ -86,7 +97,8 @@
 		FF94B23219CC1D75005B279C /* TPRIOATests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRIOATests.m; sourceTree = "<group>"; };
 		FF94B25119CC7660005B279C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		FF94B25219CC7660005B279C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		FF94B25319CC7660005B279C /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		FFC70A2919D8F1540047C9E5 /* BaseMasterDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMasterDetailViewController.h; sourceTree = "<group>"; };
+		FFC70A2A19D8F1540047C9E5 /* BaseMasterDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMasterDetailViewController.m; sourceTree = "<group>"; };
 		FFCB1CB219D3E5EA00D6AF86 /* FontCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FontCollection.h; path = TPRIOA/StaticClasses/FontCollection.h; sourceTree = SOURCE_ROOT; };
 		FFCB1CB319D3E5EA00D6AF86 /* FontCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FontCollection.m; path = TPRIOA/StaticClasses/FontCollection.m; sourceTree = SOURCE_ROOT; };
 		FFCB1CB519D40E4300D6AF86 /* GeneralStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GeneralStorage.h; path = TPRIOA/Utilities/GeneralStorage.h; sourceTree = SOURCE_ROOT; };
@@ -113,6 +125,13 @@
 		FFCD2C3719D172CC00941AEA /* PurchaseContractCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseContractCell.h; sourceTree = "<group>"; };
 		FFCD2C3819D172CC00941AEA /* PurchaseContractCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseContractCell.m; sourceTree = "<group>"; };
 		FFCE16E319CD8E260009853D /* info_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_button@2x.png"; sourceTree = "<group>"; };
+		FFCFEABA19E52014005C3593 /* BaseInputController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseInputController.h; sourceTree = "<group>"; };
+		FFCFEABB19E52014005C3593 /* BaseInputController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseInputController.m; sourceTree = "<group>"; };
+		FFCFEABD19E52223005C3593 /* SaveInputDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SaveInputDelegate.h; sourceTree = "<group>"; };
+		FFCFEABE19E5363B005C3593 /* AdviseInputController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdviseInputController.h; sourceTree = "<group>"; };
+		FFCFEABF19E5363B005C3593 /* AdviseInputController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdviseInputController.m; sourceTree = "<group>"; };
+		FFCFEAC119E7B032005C3593 /* PhotoGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoGalleryViewController.h; sourceTree = "<group>"; };
+		FFCFEAC219E7B032005C3593 /* PhotoGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoGalleryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,13 +191,16 @@
 				FF94B21B19CC1D75005B279C /* AppDelegate.m */,
 				FF94B25119CC7660005B279C /* LoginViewController.h */,
 				FF94B25219CC7660005B279C /* LoginViewController.m */,
-				FF94B25319CC7660005B279C /* LoginViewController.xib */,
 				FF65F7D419CFC1FF007D8DD3 /* MainController.h */,
 				FF65F7D519CFC1FF007D8DD3 /* MainController.m */,
 				FFCD2C2219D10FD800941AEA /* PurchaseContractViewController.h */,
 				FFCD2C2319D10FD800941AEA /* PurchaseContractViewController.m */,
 				FFCB1CB819D5001500D6AF86 /* UndoneViewController.h */,
 				FFCB1CB919D5001500D6AF86 /* UndoneViewController.m */,
+				FFCFEABE19E5363B005C3593 /* AdviseInputController.h */,
+				FFCFEABF19E5363B005C3593 /* AdviseInputController.m */,
+				FFCFEAC119E7B032005C3593 /* PhotoGalleryViewController.h */,
+				FFCFEAC219E7B032005C3593 /* PhotoGalleryViewController.m */,
 				FF94B22019CC1D75005B279C /* Main.storyboard */,
 				FF94B22319CC1D75005B279C /* Images.xcassets */,
 				FF94B22519CC1D75005B279C /* LaunchScreen.xib */,
@@ -222,6 +244,10 @@
 		FF94B24519CC3BD0005B279C /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				FF335F5619E815EF009048A8 /* Test4.png */,
+				FF03F06519E7ECA5009FFC34 /* Test3.png */,
+				FF03F06619E7ECA5009FFC34 /* Test2.png */,
+				FF03F06319E7EC2F009FFC34 /* Test1.png */,
 				FF65F7E319D013FF007D8DD3 /* bulletin@2x.png */,
 				FF65F7E419D013FF007D8DD3 /* document_management@2x.png */,
 				FF65F7E519D013FF007D8DD3 /* done@2x.png */,
@@ -248,6 +274,7 @@
 				FFCB1CD219D5147000D6AF86 /* BaseSplitViewProtocol.h */,
 				FFCB1CD319D5147000D6AF86 /* BaseUIProtocol.h */,
 				FFCB1CDA19D7FA0B00D6AF86 /* ButtonDelegate.h */,
+				FFCFEABD19E52223005C3593 /* SaveInputDelegate.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -282,6 +309,10 @@
 				FFCB1CCB19D50AC600D6AF86 /* UndoneItemCell.m */,
 				FFCB1CD719D7F47F00D6AF86 /* CustomizePickerView.h */,
 				FFCB1CD819D7F47F00D6AF86 /* CustomizePickerView.m */,
+				FFC70A2919D8F1540047C9E5 /* BaseMasterDetailViewController.h */,
+				FFC70A2A19D8F1540047C9E5 /* BaseMasterDetailViewController.m */,
+				FFCFEABA19E52014005C3593 /* BaseInputController.h */,
+				FFCFEABB19E52014005C3593 /* BaseInputController.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -367,13 +398,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF94B22219CC1D75005B279C /* Main.storyboard in Resources */,
+				FF03F06819E7ECA5009FFC34 /* Test2.png in Resources */,
 				FF65F7F119D013FF007D8DD3 /* income_contract@2x.png in Resources */,
 				FF94B22719CC1D75005B279C /* LaunchScreen.xib in Resources */,
-				FF94B25519CC7660005B279C /* LoginViewController.xib in Resources */,
 				FF65F7D819CFFDB6007D8DD3 /* info_button_dark@2x.png in Resources */,
 				FF65F7F419D013FF007D8DD3 /* reading@2x.png in Resources */,
 				FF65F7DC19D00512007D8DD3 /* logined_status@2x.png in Resources */,
+				FF335F5719E815EF009048A8 /* Test4.png in Resources */,
 				FF65F7EE19D013FF007D8DD3 /* bulletin@2x.png in Resources */,
+				FF03F06719E7ECA5009FFC34 /* Test3.png in Resources */,
 				FF65F7F719D013FF007D8DD3 /* undone@2x.png in Resources */,
 				FF65F7F819D013FF007D8DD3 /* work_report@2x.png in Resources */,
 				FF65F7E019D0127A007D8DD3 /* light_settings_gear@2x.png in Resources */,
@@ -383,6 +416,7 @@
 				FF65F7F319D013FF007D8DD3 /* purchase_contract@2x.png in Resources */,
 				FF65F7F519D013FF007D8DD3 /* signature_management@2x.png in Resources */,
 				FF65F7E219D0127A007D8DD3 /* title_logo@2x.png in Resources */,
+				FF03F06419E7EC2F009FFC34 /* Test1.png in Resources */,
 				FF65F7F019D013FF007D8DD3 /* done@2x.png in Resources */,
 				FF94B22419CC1D75005B279C /* Images.xcassets in Resources */,
 				FF65F7F219D013FF007D8DD3 /* meeting_management@2x.png in Resources */,
@@ -406,17 +440,21 @@
 				FFCD2C3419D171B700941AEA /* DataFetchingClient.m in Sources */,
 				FFCB1CD919D7F47F00D6AF86 /* CustomizePickerView.m in Sources */,
 				FFCD2C2419D10FD800941AEA /* PurchaseContractViewController.m in Sources */,
+				FFCFEABC19E52014005C3593 /* BaseInputController.m in Sources */,
 				FFCB1CB719D40E4300D6AF86 /* GeneralStorage.m in Sources */,
 				FFCB1CBA19D5001500D6AF86 /* UndoneViewController.m in Sources */,
 				FFCD2C3919D172CC00941AEA /* PurchaseContractCell.m in Sources */,
 				FF94B25419CC7660005B279C /* LoginViewController.m in Sources */,
 				FF94B21C19CC1D75005B279C /* AppDelegate.m in Sources */,
+				FFC70A2B19D8F1540047C9E5 /* BaseMasterDetailViewController.m in Sources */,
 				FFCD2C2E19D171AE00941AEA /* ColorCollection.m in Sources */,
 				FF94B21919CC1D75005B279C /* main.m in Sources */,
 				FFCD2C3519D171B700941AEA /* LoginClient.m in Sources */,
 				FF65F7D619CFC1FF007D8DD3 /* MainController.m in Sources */,
 				FFCB1CCC19D50AC600D6AF86 /* UndoneItemCell.m in Sources */,
 				FFCD2C2F19D171AE00941AEA /* DialogCollection.m in Sources */,
+				FFCFEAC319E7B032005C3593 /* PhotoGalleryViewController.m in Sources */,
+				FFCFEAC019E5363B005C3593 /* AdviseInputController.m in Sources */,
 				FFCB1CB419D3E5EA00D6AF86 /* FontCollection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

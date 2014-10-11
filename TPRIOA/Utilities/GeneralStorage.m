@@ -54,23 +54,48 @@ static GeneralStorage *generalStorage = nil;
     return [self.userDataDefaults boolForKey:@"WillAutoLogin"];
 }
 
-- (NSArray *)getUsrLoginData
+- (NSDictionary *)getUsrLoginData
 {
-    NSMutableArray *loginDataArray = nil;
     if ([self.userDataDefaults boolForKey:@"UserExisted"] == YES) {
-        loginDataArray = [[NSMutableArray alloc] initWithCapacity:2];
-        [loginDataArray addObject:[self.userDataDefaults objectForKey:@"Username"]];
-        [loginDataArray addObject:[self.userDataDefaults objectForKey:@"Password"]];
+        return @{@"Username" : [self.userDataDefaults objectForKey:@"Username"],
+                 @"Password" : [self.userDataDefaults objectForKey:@"Password"]};
     }
-    return loginDataArray == nil ? loginDataArray : [NSArray arrayWithArray:loginDataArray];
+    return nil;
 }
 
-- (void)registerUsrLocally:(NSArray *)usrLoginArray
+- (void)registerUsrLocally:(NSDictionary *)usrLoginData
 {
-    [self setUsrStatusFlag:YES];
-    [self setAutoLoginFlag:YES];
-    [self.userDataDefaults setObject:[usrLoginArray objectAtIndex:0] forKey:@"Username"];
-    [self.userDataDefaults setObject:[usrLoginArray objectAtIndex:1] forKey:@"Password"];
+    if (usrLoginData != nil) {
+        [self setUsrStatusFlag:YES];
+        [self setAutoLoginFlag:YES];
+        [self.userDataDefaults setObject:usrLoginData[@"Username"] forKey:@"Username"];
+        [self.userDataDefaults setObject:usrLoginData[@"Password"] forKey:@"Password"];
+    }
+}
+
+- (NSString *)getUsrName
+{
+    return [self.userDataDefaults objectForKey:@"Username"];
+}
+
+#pragma mark PhotoStorage
+
+- (void)savePhoto:(UIImage *)photoSaving withCompletionHandler:(void (^)(NSURL *assetURL, NSError *error))completionHandler
+{
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    [library writeImageToSavedPhotosAlbum:[photoSaving CGImage] orientation:(ALAssetOrientation)[photoSaving imageOrientation] completionBlock:completionHandler];
+}
+
+- (void)savePhotos:(NSArray *)photoArray withCompletionHandler:(void (^)(NSURL *assetURL, NSError *error))completionHandler
+{
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    for (int i = 0; i < [photoArray count]; ++i) {
+        UIImage *photoSaving = [photoArray objectAtIndex:i];
+        if (i == [photoArray count] - 1) {
+            [library writeImageToSavedPhotosAlbum:[photoSaving CGImage] orientation:(ALAssetOrientation)[photoSaving imageOrientation] completionBlock:completionHandler];
+        }
+        [library writeImageToSavedPhotosAlbum:[photoSaving CGImage] orientation:(ALAssetOrientation)[photoSaving imageOrientation] completionBlock:nil];
+    }
 }
 
 @end

@@ -16,16 +16,11 @@
 // Utilities
 #import "DataFetchingClient.h"
 
-// Viewss
+// Views
 #import "UndoneItemCell.h"
 #import "CustomizePickerView.h"
-
-// Constraints
-static NSString *const masterViewVCons = @"V:|-0-[_masterView]-0-|";
-static NSString *const detailViewHCons = @"H:[_viewSeparator]-0-[_detailView]-0-|";
-static NSString *const detailViewVCons = @"V:|-0-[_detailView]-0-|";
-static NSString *const viewSeparatorHCons = @"H:[_masterView]-0-[_viewSeparator(==2)]";
-static NSString *const viewSeparatorVCons = @"V:|-0-[_viewSeparator]-0-|";
+#import "AdviseInputController.h"
+#import "PhotoGalleryViewController.h"
 
 static NSString *const masterTableViewIdentifier = @"MasterTableViewCell";
 static NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
@@ -44,18 +39,20 @@ static NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
     // Testing
     NSArray *availablePeople;
     NSString *selectedPerson;
+    NSString *inputAdvise;
     // Pickerview
     CustomizePickerView *pickPersonView;
+    // Flags
+    BOOL isPickerViewPresented;
 }
-
-@synthesize masterView = _masterView;
-@synthesize detailView = _detailView;
-@synthesize viewSeparator = _viewSeparator;
 
 - (id)init
 {
     self = [super init];
     if (self) {
+        // Testing
+        selectedPerson = @"尚未选择";
+        inputAdvise = @"尚未填写";
         // Masterview
         testSectionArray = [[NSArray alloc] init];
         testDictionary = [[NSMutableDictionary alloc] init];
@@ -63,6 +60,8 @@ static NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
         // Detailview
         detailTableViewLabelArray = [[NSMutableArray alloc] initWithCapacity:5];
         detailTableViewHeaderArray = [[NSMutableArray alloc] initWithCapacity:5];
+        // Flags
+        isPickerViewPresented = NO;
         // Add UI Elements
         [self prepareUIElements];
     }
@@ -73,12 +72,46 @@ static NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
     [super viewDidLoad];
     [self buildNavigationBar];
     [self buildConstraintsOnUIElements];
-    [self prepareData];
+    [self prepareDataAsyncWithCompletionHandler:^(BOOL isSuccess, NSError *error) {
+        [[[self.view subviews] lastObject] removeFromSuperview];
+        if (isSuccess) {
+            // Official
+            [self.masterView reloadData];
+            [self.detailView reloadData];
+            [self.masterView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        }
+        else {
+            if (error) {
+                [DialogCollection showAlertViewWithTitle:@"错误" andMessage:error.description withLastingTime:0.5f delegate:self];
+            }
+        }
+    }];
 }
 
-- (void)prepareData
+- (void)prepareUIElements
 {
-    [DialogCollection showProgressView:@"正在加载" over:self.view];
+    [super prepareUIElements];
+    self.title = @"待办事项";
+    // 初始化Tableview的delegate,datasource和class
+    self.masterView.delegate = self;
+    self.masterView.dataSource = self;
+    [self.masterView registerClass:[UndoneItemCell class] forCellReuseIdentifier:masterTableViewIdentifier];
+    self.detailView.delegate = self;
+    self.detailView.dataSource = self;
+    [self.detailView registerClass:[UITableViewCell class] forCellReuseIdentifier:detailTableViewIdentifier];
+}
+
+- (void)buildNavigationBar
+{
+    [super buildNavigationBar];
+    // Title baritem
+    UILabel *titleLabel = (UILabel *)self.navigationItem.titleView;
+    [titleLabel setText:@"待办事项"];
+    [titleLabel sizeToFit];
+}
+
+- (BOOL)fetchRemoteData
+{
     DataFetchingClient *dataFetchingClient = [[DataFetchingClient alloc] init];
     [dataFetchingClient fetchDataIntoDictionary:testDictionary completionHandler:^{
         // Testing
@@ -98,74 +131,8 @@ static NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
         detailTableViewHeaderArray = [[NSMutableArray alloc] initWithCapacity:4];
         [detailTableViewHeaderArray addObjectsFromArray:@[@"参与方信息", @"合同详细信息", @"付款信息", @"审核信息", @"其他", @"意见"]];
         availablePeople = @[@"肖勇", @"黄甫翔", @"董明利"];
-        // Official
-        [[[self.view subviews] lastObject] removeFromSuperview];
-        [_masterView reloadData];
-        _masterView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, _masterView.bounds.size.width, 10.0f)];
-        [_detailView reloadData];
-        [_masterView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
     }];
-}
-
-- (void)prepareUIElements
-{
-    // 初始化各Subviews的实例
-    // 显示概要的Masterview
-    self.masterView = [[UITableView alloc] init];
-    self.masterView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.masterView registerClass:[UndoneItemCell class] forCellReuseIdentifier:masterTableViewIdentifier];
-    [self.masterView setBackgroundColor:[ColorCollection tableViewHeaderColor]];
-    self.masterView.delegate = self;
-    self.masterView.dataSource = self;
-    
-    // 显示详情的Detailview
-    self.detailView = [[UITableView alloc] init];
-    self.detailView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.detailView registerClass:[UndoneItemCell class] forCellReuseIdentifier:detailTableViewIdentifier];
-    [self.detailView setBackgroundColor:[ColorCollection tableViewHeaderColor]];
-    self.detailView.delegate = self;
-    self.detailView.dataSource = self;
-    
-    // 分隔Masterview和Detailview的Viewseperator
-    self.viewSeparator = [[UIView alloc] init];
-    self.viewSeparator.backgroundColor = [ColorCollection lightGrayColor];
-    self.viewSeparator.translatesAutoresizingMaskIntoConstraints = NO;
-}
-
-- (void)buildNavigationBar
-{
-    self.navigationController.navigationBar.translucent = NO;
-    [self.navigationController.navigationBar setBarTintColor:[ColorCollection titleBarColor]];
-    // Title baritem
-    UILabel *titleLabel = [[UILabel alloc] init];
-    [titleLabel setFont:[FontCollection standardBoldFontStyleWithSize:17.0f]];
-    [titleLabel setTextColor:[UIColor whiteColor]];
-    [titleLabel setText:@"待办事项"];
-    [titleLabel sizeToFit];
-    self.navigationItem.titleView = titleLabel;
-}
-
-- (void)buildConstraintsOnUIElements
-{
-    // 添加Subviews
-    [self.view addSubview:_masterView];
-    [self.view addSubview:_detailView];
-    [self.view addSubview:_viewSeparator];
-    // 为显示合同概要的Masterview添加约束
-    NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_masterView);
-    NSMutableArray *constraintsArray = [[NSMutableArray alloc] init];
-    [constraintsArray addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:masterViewVCons options:0 metrics:nil views:viewDictionary]];
-    [constraintsArray addObject:[NSLayoutConstraint constraintWithItem:_masterView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0f constant:0.0f]];
-    [constraintsArray addObject:[NSLayoutConstraint constraintWithItem:_masterView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:0.4f constant:0.0f]];
-    // 为分隔Masterview和Detailview的Viewseperator添加约束
-    viewDictionary = NSDictionaryOfVariableBindings(_masterView, _viewSeparator);
-    [constraintsArray addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:viewSeparatorHCons options:0 metrics:nil views:viewDictionary]];
-    [constraintsArray addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:viewSeparatorVCons options:0 metrics:nil views:viewDictionary]];
-    // 为显示合同详情的Detailview添加约束
-    viewDictionary = NSDictionaryOfVariableBindings(_viewSeparator, _detailView);
-    [constraintsArray addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:detailViewHCons options:0 metrics:nil views:viewDictionary]];
-    [constraintsArray addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:detailViewVCons options:0 metrics:nil views:viewDictionary]];
-    [self.view addConstraints:[NSArray arrayWithArray:constraintsArray]];
+    return YES;
 }
 
 #pragma mark <UITableViewDelegate>
@@ -173,7 +140,7 @@ static NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // 左边概要视图中TableViewCell构建
-    if (tableView == _masterView) {
+    if (tableView == self.masterView) {
         UndoneItemCell *cell = [tableView dequeueReusableCellWithIdentifier:masterTableViewIdentifier forIndexPath:indexPath];
         [self configureMasterTableViewCell:cell forIndexPath:indexPath];
         return cell;
@@ -188,7 +155,7 @@ static NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
 // 各UITableView有多少个section
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if (tableView == _masterView) {
+    if (tableView == self.masterView) {
         return [testSectionArray count];
     }
     else {
@@ -199,11 +166,11 @@ static NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
             [backgroudLabel setTextAlignment:NSTextAlignmentCenter];
             [backgroudLabel setText:@"尚未选中任何条目"];
             [backgroudLabel sizeToFit];
-            _detailView.backgroundView = backgroudLabel;
-            _detailView.separatorStyle = UITableViewCellSeparatorStyleNone;  // Remove separator line
+            self.detailView.backgroundView = backgroudLabel;
+            self.detailView.separatorStyle = UITableViewCellSeparatorStyleNone;  // Remove separator line
             return 0;
         }
-        _detailView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        self.detailView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         return [detailTableViewHeaderArray count];
     }
 }
@@ -211,7 +178,7 @@ static NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
 // 定义每个section有多少列
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (tableView == _masterView) {
+    if (tableView == self.masterView) {
         return [self numberOfRowsInMasterTableViewForSection:section];
     }
     return [self numberOfRowsInDetailTableViewForSection:section];
@@ -220,7 +187,7 @@ static NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
 // 定义行高
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (tableView == _masterView) {
+    if (tableView == self.masterView) {
         return [self masterTableViewCellHeightForIndexPath:indexPath];
     }
     return [self detailTableViewCellHeightForIndexPath:indexPath];
@@ -234,7 +201,7 @@ static NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UITableView *currentTableView = (tableView == _masterView) ? _masterView : _detailView;
+    UITableView *currentTableView = (tableView == self.masterView) ? self.masterView : self.detailView;
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, currentTableView.bounds.size.width, 30.0f)];
     [headerView setBackgroundColor:[ColorCollection tableViewHeaderColor]];
     
@@ -252,7 +219,7 @@ static NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
     [headerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:headerLabelHCons options:0 metrics:nil views:viewDictionary]];
     [headerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:headerLabelVCons options:0 metrics:nil views:viewDictionary]];
     
-    if (currentTableView == _masterView) {
+    if (currentTableView == self.masterView) {
         [headerLabel setText:[testSectionArray objectAtIndex:section]];
     }
     else {
@@ -264,8 +231,29 @@ static NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 4 && indexPath.row == 2) {
-        [self showPickerView];
+    if (indexPath.section == 4) {
+        if (indexPath.row == 2 && !isPickerViewPresented) {
+            [self showPickerView];
+            isPickerViewPresented = YES;
+        }
+        else if (indexPath.row == 1) {
+            AdviseInputController *adviseInputController = [[AdviseInputController alloc] initWithMaxNumberOfCharacters:100 andInitialCharacters:inputAdvise];
+            UINavigationController *naviOnBaseInputController = [[UINavigationController alloc] initWithRootViewController:adviseInputController];
+            adviseInputController.delegate = self;
+            [self presentViewController:naviOnBaseInputController animated:YES completion:^{
+                // Do nothing
+            }];
+        }
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+    else if (indexPath.section == 3) {
+        if (indexPath.row == 0) {
+            PhotoGalleryViewController *photoGalleryViewController = [[PhotoGalleryViewController alloc] init];
+            UINavigationController *naviOnPhotoGalleryViewController = [[UINavigationController alloc] initWithRootViewController:photoGalleryViewController];
+            [self presentViewController:naviOnPhotoGalleryViewController animated:YES completion:^{
+                [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+            }];
+        }
     }
     return indexPath;
 }
@@ -285,6 +273,7 @@ static NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
 {
     [cell.textLabel setFont:[FontCollection standardBoldFontStyleWithSize:15.0f]];
     [cell.textLabel setText:[[detailTableViewLabelArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
+    cell.selectionStyle = UITableViewCellEditingStyleNone;
     
     // Testing
     [cell.detailTextLabel setText:@"暂无信息"];
@@ -297,20 +286,23 @@ static NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
             break;
         }
         case 3: {
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             [cell.detailTextLabel setText:@""];
+            cell.selectionStyle = UITableViewCellSelectionStyleGray;
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             break;
         }
         case 4: {
             if (indexPath.row == 1) {
-                [cell.detailTextLabel setText:@"编辑"];
+                [cell.detailTextLabel setText:inputAdvise];
                 [cell.detailTextLabel setTextColor:[ColorCollection defaultBlueColor]];
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                cell.selectionStyle = UITableViewCellSelectionStyleGray;
             }
             else if (indexPath.row == 2) {
-                [cell.detailTextLabel setText:@"选择"];
+                [cell.detailTextLabel setText:selectedPerson];
                 [cell.detailTextLabel setTextColor:[ColorCollection defaultBlueColor]];
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                cell.selectionStyle = UITableViewCellSelectionStyleGray;
             }
             break;
         }
@@ -323,10 +315,7 @@ static NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
                 [cell.textLabel setTextColor:[ColorCollection negativeUIColor]];
             }
             [cell.detailTextLabel setText:@""];
-            break;
-        }
-        default: {
-            // Should never be here
+            cell.selectionStyle = UITableViewCellSelectionStyleGray;
             break;
         }
     }
@@ -383,7 +372,18 @@ static NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
         NSInteger selecedRow = [pickPersonView.pickerView selectedRowInComponent:0];
         selectedPerson = [pickPersonView.pickerView.delegate pickerView:pickPersonView.pickerView titleForRow:selecedRow forComponent:0];
         [self dismissPickerView];
+        // 部门负责人选择确认,重新加载
+        [self.detailView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:2 inSection:4]] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
+}
+
+#pragma mark <SaveInputDelegate>
+
+- (void)saveText:(NSString *)text
+{
+    inputAdvise = text;
+    // 主管意见输入确认,重新加载
+    [self.detailView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:4]] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark PickerView
@@ -418,6 +418,7 @@ static NSString *const detailTableViewIdentifier = @"DetailTableViewCell";
     } completion:^(BOOL finished) {
         if (finished) {
             [pickPersonView removeFromSuperview];
+            isPickerViewPresented = NO;
         }
     }];
 }

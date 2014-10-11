@@ -42,6 +42,11 @@
     return [UIColor colorWithRed:0.0f green:122.0f/255.0f blue:1.0f alpha:1.0f];;
 }
 
++ (UIColor *)defaultTextColor
+{
+    return [UIColor blackColor];
+}
+
 + (UIColor *)lightGrayColor
 {
     return [UIColor colorWithWhite:0.9f alpha:0.9f];
@@ -70,6 +75,11 @@
 + (UIColor *)whiteColor
 {
     return [UIColor whiteColor];
+}
+
++ (UIColor *)clearColor
+{
+    return [UIColor clearColor];
 }
 
 @end

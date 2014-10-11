@@ -11,7 +11,7 @@
 
 @protocol BaseSplitViewProtocol <NSObject>
 
-@required
+@optional
 - (void)configureMasterTableViewCell:(UITableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath;
 - (void)configureDetailTableViewCell:(UITableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath;
 - (NSInteger)numberOfRowsInMasterTableViewForSection:(NSInteger)section;

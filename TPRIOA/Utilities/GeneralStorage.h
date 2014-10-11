@@ -6,7 +6,9 @@
 //  Copyright (c) 2014年 xiaoyong. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface GeneralStorage : NSObject
 
@@ -22,8 +24,14 @@
 
 - (BOOL)willAutoLogin;
 
-- (NSArray *)getUsrLoginData;
+- (NSDictionary *)getUsrLoginData;
 
-- (void)registerUsrLocally:(NSArray *)usrLoginArray;
+- (void)registerUsrLocally:(NSDictionary *)usrLoginData;
+
+- (NSString *)getUsrName;
+
+- (void)savePhoto:(UIImage *)photoSaving withCompletionHandler:(void (^)(NSURL *assetURL, NSError *error))completionHandler;
+
+- (void)savePhotos:(NSArray *)photoArray withCompletionHandler:(void (^)(NSURL *assetURL, NSError *error))completionHandler;
 
 @end

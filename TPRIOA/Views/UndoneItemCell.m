@@ -30,22 +30,22 @@ static NSString *const dateLabelHCons = @"[_dateLabel]-5-|";
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // 标题
-        _titleLabel = [[UILabel alloc] init];
-        [_titleLabel setFont:[FontCollection standardBoldFontStyleWithSize:15.0f]];
-        _titleLabel.numberOfLines = 2;
-        [_titleLabel sizeToFit];
+        self.titleLabel = [[UILabel alloc] init];
+        [self.titleLabel setFont:[FontCollection standardBoldFontStyleWithSize:15.0f]];
+        self.titleLabel.numberOfLines = 2;
+        [self.titleLabel sizeToFit];
         [self.contentView addSubview:_titleLabel];
         // 部门
-        _fromLabel = [[UILabel alloc] init];
-        [_fromLabel setFont:[FontCollection standardFontStyleWithSize:10.0F]];
-        _fromLabel.numberOfLines = 1;
-        [_fromLabel setTextColor:[UIColor lightGrayColor]];
+        self.fromLabel = [[UILabel alloc] init];
+        [self.fromLabel setFont:[FontCollection standardFontStyleWithSize:10.0F]];
+        self.fromLabel.numberOfLines = 1;
+        [self.fromLabel setTextColor:[UIColor lightGrayColor]];
         [self.contentView addSubview:_fromLabel];
         // 状态
-        _dateLabel = [[UILabel alloc] init];
-        [_dateLabel setFont:[FontCollection standardFontStyleWithSize:10.0f]];
-        [_dateLabel setTextAlignment:NSTextAlignmentRight];
-        _dateLabel.numberOfLines = 1;
+        self.dateLabel = [[UILabel alloc] init];
+        [self.dateLabel setFont:[FontCollection standardFontStyleWithSize:10.0f]];
+        [self.dateLabel setTextAlignment:NSTextAlignmentRight];
+        self.dateLabel.numberOfLines = 1;
         [self.contentView addSubview:_dateLabel];
     }
     return self;
@@ -55,19 +55,19 @@ static NSString *const dateLabelHCons = @"[_dateLabel]-5-|";
 {
     pb();
     // 为标题添加约束
-    _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_fromLabel, _titleLabel);
     NSMutableArray *constraintsArray = [[NSMutableArray alloc] init];
     [constraintsArray addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:titleLabelHCons options:0 metrics:nil views:viewDictionary]];
     [constraintsArray addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:titleLabelVCons options:0 metrics:nil views:viewDictionary]];
     [constraintsArray addObject:[NSLayoutConstraint constraintWithItem:_titleLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationLessThanOrEqual toItem:self.contentView attribute:NSLayoutAttributeWidth multiplier:0.75f constant:0.0f]];
     // 为部门添加约束
-    _fromLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.fromLabel.translatesAutoresizingMaskIntoConstraints = NO;
     viewDictionary = NSDictionaryOfVariableBindings(_fromLabel);
     [constraintsArray addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:fromLabelHCons options:0 metrics:nil views:viewDictionary]];
     [constraintsArray addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:fromLabelVCons options:0 metrics:nil views:viewDictionary]];
     // 为状态添加约束
-    _dateLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.dateLabel.translatesAutoresizingMaskIntoConstraints = NO;
     viewDictionary = NSDictionaryOfVariableBindings(_dateLabel);
     [constraintsArray addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:dateLabelHCons options:0 metrics:nil views:viewDictionary]];
     [constraintsArray addObject:[NSLayoutConstraint constraintWithItem:_dateLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.contentView attribute:NSLayoutAttributeWidth multiplier:0.20f constant:0.0f]];

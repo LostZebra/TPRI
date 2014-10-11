@@ -8,15 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+#import "BaseMasterDetailViewController.h"
+
 // Protocol
 #import "BaseUIProtocol.h"
 #import "BaseSplitViewProtocol.h"
 
-@interface PurchaseContractViewController : UIViewController<BaseUIProtocol, BaseSplitViewProtocol, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
+@interface PurchaseContractViewController : BaseMasterDetailViewController<BaseSplitViewProtocol, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
-@property (strong, nonatomic) UITableView *masterView;
-@property (strong, nonatomic) UITableView *detailView;
-@property (strong, nonatomic) UIView *viewSeparator;
+// @property (strong, nonatomic) UITableView *masterView;
+// @property (strong, nonatomic) UITableView *detailView;
+// @property (strong, nonatomic) UIView *viewSeparator;
 @property (strong, nonatomic) UISearchBar *searchBar;
 
 @end

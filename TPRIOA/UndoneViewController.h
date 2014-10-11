@@ -8,16 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+#import "BaseMasterDetailViewController.h"
+
 // Protocol
 #import "BaseSplitViewProtocol.h"
-#import "BaseUIProtocol.h"
 #import "ButtonDelegate.h"
+#import "SaveInputDelegate.h"
 
-@interface UndoneViewController : UIViewController<BaseUIProtocol, BaseSplitViewProtocol, UITableViewDelegate, UITableViewDataSource, ButtonDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
-
-@property (strong, nonatomic) UITableView *masterView;
-@property (strong, nonatomic) UITableView *detailView;
-@property (strong, nonatomic) UIView *viewSeparator;
+@interface UndoneViewController : BaseMasterDetailViewController<BaseSplitViewProtocol, UITableViewDelegate, UITableViewDataSource, ButtonDelegate, UIPickerViewDelegate, UIPickerViewDataSource, SaveInputDelegate>
 
 @end
 
